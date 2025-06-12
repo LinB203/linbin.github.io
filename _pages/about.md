@@ -33,7 +33,7 @@ My huggingface at 🤗 [Huggingface home](https://huggingface.co/kailinjiang).
 # 📝 Selected Publications
 *: Co-First Author, Equal Contribution
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">Priprint</div><img src='images/paper_overview/open-sora-plan.jpg' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">Priprint</div><img src='images/open-sora-plan.jpg' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
 [Open-Sora Plan: Open-Source Large Video Generation Model](https://arxiv.org/abs/2412.00131)
@@ -51,7 +51,7 @@ My huggingface at 🤗 [Huggingface home](https://huggingface.co/kailinjiang).
 
 
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">Preprint</div><img src='images/paper_overview/uniworld-v1.jpg' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">Preprint</div><img src='images/uniworld-v1.jpg' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
 [UniWorld-V1: High-Resolution Semantic Encoders for Unified Visual Understanding and Generation](https://arxiv.org/abs/2506.03147)
@@ -67,7 +67,7 @@ My huggingface at 🤗 [Huggingface home](https://huggingface.co/kailinjiang).
 
 
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">EMNLP2025</div><img src='images/paper_overview/video-llava.jpg' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">EMNLP2025</div><img src='images/video-llava.jpg' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
 [Video-LLaVA: Learning United Visual Representation by Alignment Before Projection](https://arxiv.org/abs/2311.10122)
@@ -80,7 +80,7 @@ My huggingface at 🤗 [Huggingface home](https://huggingface.co/kailinjiang).
 
 
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">Preprint</div><img src='images/paper_overview/moe-llava.jpg' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">Preprint</div><img src='images/moe-llava.jpg' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
 [MoE-LLaVA: Mixture of Experts for Large Vision-Language Models](https://arxiv.org/abs/2401.15947)
@@ -93,7 +93,7 @@ My huggingface at 🤗 [Huggingface home](https://huggingface.co/kailinjiang).
 
 
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">CVPR2025</div><img src='images/paper_overview/wf-vae.jpg' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">CVPR2025</div><img src='images/wf-vae.jpg' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
 [WF-VAE: Enhancing Video VAE by Wavelet-Driven Energy Flow for Latent Video Diffusion Model](https://arxiv.org/abs/2411.17459)
@@ -106,7 +106,7 @@ Zongjian Li, **Bin Lin\***, Yang Ye, Liuhan Chen, Xinhua Cheng, Shenghai Yuan, L
 
 
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">ICLR2024</div><img src='images/paper_overview/languagebind.jpg' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">ICLR2024</div><img src='images/languagebind.jpg' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
 [LanguageBind: Extending Video-Language Pretraining to N-modality by Language-based Semantic Alignment](https://arxiv.org/abs/2310.01852)
