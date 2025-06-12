@@ -12,7 +12,7 @@ redirect_from:
 
 <!-- I am a third-year Ph.D. candidate of Computer Science at College of Electron and Computer Engineering, Peking University, advised by Prof. Li Yuan. Before this, I got a B.E. degree of Computer Science at College of Information Engineering, Sichuan Agricultural University. -->
 
-I am a third-year Master of Computer Science at College of Electron and Computer Engineering, Peking University, advised by Prof. Li Yuan. Before this, I got a B.E. degree of Computer Science at College of Information Engineering, Sichuan Agricultural University.
+I am a third-year Master of Computer Science at [College of Electron and Computer Engineering](https://www.ece.pku.edu.cn/index.htm), [Peking University](https://www.pku.edu.cn/), advised by Prof. [Li Yuan](https://yuanli2333.github.io/). Before this, I got a B.E. degree of Computer Science at [College of Information Engineering](https://xxgc.sicau.edu.cn/), [Sichuan Agricultural University](https://www.sicau.edu.cn/).
 
 My research interest includes multi-modal understanding, multi-modal generation and large unified model. <a href='https://scholar.google.com/citations?user=GCOVDKoAAAAJ'><img src="https://img.shields.io/endpoint?logo=Google%20Scholar&url=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2FLinBin%2Flinbin.github.io@google-scholar-stats%2Fgs_data_shieldsio.json&labelColor=f6f6f6&color=9cf&style=flat&label=citations"></a> 
 
@@ -26,7 +26,7 @@ My huggingface at 🤗 [Huggingface home](https://huggingface.co/LanguageBind).
 - **2025.03**: &nbsp;🎉🎉 Thrilled that <a href='https://github.com/PKU-YuanGroup/Video-LLaVA'>Video-LLaVA</a> ranks in Top 1 of the <a href='https://resources.paperdigest.org/2025/03/most-influential-emnlp-papers-2025-03-version'>Most Influential EMNLP 2025 Papers</a>！
 - **2025.02**: &nbsp;🎉🎉 One paper have been accepted by **CVPR 2025**! <a href='https://github.com/PKU-YuanGroup/WF-VAE'>WF-VAE</a>！
 - **2024.09**: &nbsp;🎉🎉 One paper have been accepted by **EMNLP 2025**! <a href='https://github.com/PKU-YuanGroup/Video-LLaVA'>Video-LLaVA</a>！
-- **2024.03**: &nbsp;🎉🎉 We launch a plan to create a simple and scalable repo, to reproduce Sora <a href='https://github.com/PKU-YuanGroup/Open-Sora-Plan'>Open-Sora Plan</a>！
+- **2024.03**: &nbsp;🎉🎉 We launch a plan to create a simple and scalable repo, <a href='https://github.com/PKU-YuanGroup/Open-Sora-Plan'>Open-Sora Plan</a>, to reproduce Sora！
 - **2024.01**: &nbsp;🎉🎉 One paper have been accepted by **ICLR 2024**! <a href='https://github.com/PKU-YuanGroup/LanguageBind'>LanguageBind</a>！
 - **2023.06**: &nbsp;🎉🎉 I successfully completed my undergraduate studies from the College of Information Engineering, Sichuan Agricultural University!
 
