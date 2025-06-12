@@ -22,8 +22,8 @@ My huggingface at 🤗 [Huggingface home](https://huggingface.co/LanguageBind).
 
 # 🔥 News
 <!-- Allowed emojis: 🎉🎉for good news 📣📣for average news-->
-- **2025.06**: &nbsp;🎉🎉 The <a href='https://github.com/PKU-YuanGroup/Open-Sora-Plan'>Open-Sora Plan</a> has released version 1.5 and reached 12,000 stars on GitHub. At the same time, we are launching <a href='https://github.com/PKU-YuanGroup/UniWorld-V1'>UniWorld-V1</a>!
-- **2025.03**: &nbsp;🎉🎉 Thrilled that <a href='https://github.com/PKU-YuanGroup/Video-LLaVA'>Video-LLaVA</a> ranks in Top 1 of the <a href='https://resources.paperdigest.org/2025/03/most-influential-emnlp-papers-2025-03-version'>Most Influential EMNLP 2025 Papers</a>！
+- **2025.06**: &nbsp;🎉🎉 The <a href='https://github.com/PKU-YuanGroup/Open-Sora-Plan'>Open-Sora Plan</a> has released version 1.5 and reached **12,000 stars** on GitHub. At the same time, we are launching <a href='https://github.com/PKU-YuanGroup/UniWorld-V1'>UniWorld-V1</a>!
+- **2025.03**: &nbsp;🎉🎉 Thrilled that <a href='https://github.com/PKU-YuanGroup/Video-LLaVA'>Video-LLaVA</a> ranks in **Top 1** of the <a href='https://resources.paperdigest.org/2025/03/most-influential-emnlp-papers-2025-03-version'>Most Influential EMNLP 2025 Papers</a>！
 - **2025.02**: &nbsp;🎉🎉 One paper have been accepted by **CVPR 2025**! <a href='https://github.com/PKU-YuanGroup/WF-VAE'>WF-VAE</a>！
 - **2024.09**: &nbsp;🎉🎉 One paper have been accepted by **EMNLP 2025**! <a href='https://github.com/PKU-YuanGroup/Video-LLaVA'>Video-LLaVA</a>！
 - **2024.03**: &nbsp;🎉🎉 We launch a plan to create a simple and scalable repo, <a href='https://github.com/PKU-YuanGroup/Open-Sora-Plan'>Open-Sora Plan</a>, to reproduce Sora！
@@ -147,7 +147,7 @@ My full paper list is shown at [my google scholar](https://scholar.google.com/ci
 - ``Preprint`` [WISE: A World Knowledge-Informed Semantic Evaluation for Text-to-Image Generation](https://arxiv.org/abs/2503.07265), Yuwei Niu, Munan Ning, Mengren Zheng, **Bin Lin**, et al. [![arXiv](https://img.shields.io/badge/Arxiv-2503.07265-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2503.07265)   [![](https://img.shields.io/github/stars/PKU-YuanGroup/WISE?style=social&label=Code+Stars)](https://github.com/PKU-YuanGroup/WISE)
 
 
-# 🎖 Honors and Awards
+# 🎖️ Honors and Awards
 - *2023.06* Excellent graduates from Sichuan Province, China.
 - *2022.10* National Scholarship (The highest scholarship awarded by the Ministry of Education, China).
 - *2022.11* National First Prize of National Undergraduate Mathematical Modeling Contest.
