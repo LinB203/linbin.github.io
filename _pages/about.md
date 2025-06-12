@@ -16,7 +16,7 @@ I am a third-year Master of Computer Science at College of Electron and Computer
 
 My research interest includes multi-modal understanding, multi-modal generation and large unified model. <a href='https://scholar.google.com/citations?user=GCOVDKoAAAAJ'><img src="https://img.shields.io/endpoint?logo=Google%20Scholar&url=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2FLinBin%2Flinbin.github.io@google-scholar-stats%2Fgs_data_shieldsio.json&labelColor=f6f6f6&color=9cf&style=flat&label=citations"></a> 
 
-My huggingface at 🤗 [Huggingface home](https://huggingface.co/kailinjiang).
+My huggingface at 🤗 [Huggingface home](https://huggingface.co/LanguageBind).
 
 
 
