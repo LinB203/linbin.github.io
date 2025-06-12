@@ -33,7 +33,8 @@ My huggingface at 🤗 [Huggingface home](https://huggingface.co/kailinjiang).
 # 📝 Selected Publications
 *: Co-First Author, Equal Contribution
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">Priprint</div><img src='images/open-sora-plan.jpg' alt="sym" width="100%"></div></div>
+
+<!-- <div class='paper-box'><div class='paper-box-image'><div><div class="badge">Priprint</div><img src='images/open-sora-plan.jpg' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
 [Open-Sora Plan: Open-Source Large Video Generation Model](https://arxiv.org/abs/2412.00131)
@@ -43,7 +44,7 @@ My huggingface at 🤗 [Huggingface home](https://huggingface.co/kailinjiang).
 
 <b style="color: #ff0000;">The first open-source causal VAE for video.</b>
 
-[![arXiv](https://img.shields.io/badge/Arxiv-2412.00131-b31b1b.svg?logo=arXiv)](https://arxiv.org/pdf/2412.00131) [![](https://img.shields.io/github/stars/PKU-YuanGroup/Open-Sora-Plan?style=social&label=Code+Stars)](https://github.com/PKU-YuanGroup/Open-Sora-Plan)
+[![arXiv](https://img.shields.io/badge/Arxiv-2412.00131-b31b1b.svg?logo=arXiv)](https://arxiv.org/pdf/2412.00131) [![](https://img.shields.io/github/stars/PKU-YuanGroup/Open-Sora-Plan?style=social&label=Code+Stars)](https://github.com/PKU-YuanGroup/Open-Sora-Plan) -->
 
 <!-- </div>
 <a href="https://trendshift.io/repositories/8280" target="_blank"><img src="https://trendshift.io/api/badge/repositories/8280" alt="PKU-YuanGroup%2FOpen-Sora-Plan | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a>
