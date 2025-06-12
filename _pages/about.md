@@ -151,5 +151,5 @@ My full paper list is shown at [my google scholar](https://scholar.google.com/ci
 
 
 # 📖 Educations
-- *2023.09 - *, Ph.D. candidate, College of Electron and Computer Engineering, Peking University.
+- *2023.09 - 202?*, Master, College of Electron and Computer Engineering, Peking University.
 - *2019.09 - 2023.06*, Undergraduate, College of Information Engineering, Sichuan Agricultural University
