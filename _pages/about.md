@@ -37,7 +37,7 @@ My huggingface at 🤗 [Huggingface home](https://huggingface.co/kailinjiang).
 
 
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">Preprint</div><img src='images/open-sora-plan.jpg' alt="sym" width="100%"></div></div>
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">Preprint</div><img src='images/open-sora-plan.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
 [Open-Sora Plan: Open-Source Large Video Generation Model](https://arxiv.org/abs/2412.00131)
