@@ -1,7 +1,7 @@
 # main links links
 main:
   - title: "About Me"
-    url: "/#about-me"
+    url: "/linbin.github.io/#about-me"
 
   - title: "News"
     url: "/linbin.github.io/#-news"
