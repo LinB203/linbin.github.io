@@ -4,19 +4,14 @@ main:
     url: "/#about-me"
 
   - title: "News"
-    url: "/#-news"
+    url: "/linbin.github.io/#-news"
 
   - title: "Publications"
-    url: "/#-publications"
+    url: "/linbin.github.io/#-selected-publications"
 
   - title: "Honors and Awards"
-    url: "/#-honors-and-awards"
+    url: "/linbin.github.io/#-honors-and-awards"
 
   - title: "Educations"
-    url: "/#-educations"
+    url: "/linbin.github.io/#-educations"
 
-  - title: "Invited Talks"
-    url: "/#-invited-talks"
-
-  - title: "Internships"
-    url: "/#-internships"
