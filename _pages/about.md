@@ -81,6 +81,11 @@ My huggingface at 🤗 [Huggingface home](https://huggingface.co/kailinjiang).
 [Video-LLaVA: Learning United Visual Representation by Alignment Before Projection](https://arxiv.org/abs/2311.10122)
 
 **Bin Lin**, Yang Ye, Bin Zhu, Jiaxi Cui, Munan Ning, Peng Jin, Li Yuan 【2023.11】 <br>
+
+
+<b style="color: #ff0000;">Top 1 of the <a href='https://resources.paperdigest.org/2025/03/most-influential-emnlp-papers-2025-03-version'>Most Influential EMNLP 2025 Papers</a>！</b>
+
+
 [![arXiv](https://img.shields.io/badge/Arxiv-2311.10122-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2311.10122)   [![](https://img.shields.io/github/stars/PKU-YuanGroup/Video-LLaVA?style=social&label=Code+Stars)](https://github.com/PKU-YuanGroup/Video-LLaVA)
 
 </div>
