@@ -10,8 +10,9 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-I am a third-year Ph.D. candidate of Computer Science at College of Electron and Computer Engineering, Peking University, advised by Prof. Li Yuan. Before this, I got a B.E. degree of Computer Science at College of Information Engineering, Sichuan Agricultural University.
+<!-- I am a third-year Ph.D. candidate of Computer Science at College of Electron and Computer Engineering, Peking University, advised by Prof. Li Yuan. Before this, I got a B.E. degree of Computer Science at College of Information Engineering, Sichuan Agricultural University. -->
 
+I am a third-year Master of Computer Science at College of Electron and Computer Engineering, Peking University, advised by Prof. Li Yuan. Before this, I got a B.E. degree of Computer Science at College of Information Engineering, Sichuan Agricultural University.
 
 My research interest includes multi-modal understanding, multi-modal generation and large unified model. <a href='https://scholar.google.com/citations?user=GCOVDKoAAAAJ'><img src="https://img.shields.io/endpoint?logo=Google%20Scholar&url=https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2FLinBin%2Flinbin.github.io@google-scholar-stats%2Fgs_data_shieldsio.json&labelColor=f6f6f6&color=9cf&style=flat&label=citations"></a> 
 
@@ -34,7 +35,9 @@ My huggingface at 🤗 [Huggingface home](https://huggingface.co/kailinjiang).
 *: Co-First Author, Equal Contribution
 
 
-<!-- <div class='paper-box'><div class='paper-box-image'><div><div class="badge">Priprint</div><img src='images/open-sora-plan.jpg' alt="sym" width="100%"></div></div>
+
+
+<div class='paper-box'><div class='paper-box-image'><div><div class="badge">Preprint</div><img src='images/open-sora-plan.jpg' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
 [Open-Sora Plan: Open-Source Large Video Generation Model](https://arxiv.org/abs/2412.00131)
@@ -44,11 +47,15 @@ My huggingface at 🤗 [Huggingface home](https://huggingface.co/kailinjiang).
 
 <b style="color: #ff0000;">The first open-source causal VAE for video.</b>
 
-[![arXiv](https://img.shields.io/badge/Arxiv-2412.00131-b31b1b.svg?logo=arXiv)](https://arxiv.org/pdf/2412.00131) [![](https://img.shields.io/github/stars/PKU-YuanGroup/Open-Sora-Plan?style=social&label=Code+Stars)](https://github.com/PKU-YuanGroup/Open-Sora-Plan) -->
+[![arXiv](https://img.shields.io/badge/Arxiv-2412.00131-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2412.00131)   [![](https://img.shields.io/github/stars/PKU-YuanGroup/Open-Sora-Plan?style=social&label=Code+Stars)](https://github.com/PKU-YuanGroup/Open-Sora-Plan)
 
-<!-- </div>
+
 <a href="https://trendshift.io/repositories/8280" target="_blank"><img src="https://trendshift.io/api/badge/repositories/8280" alt="PKU-YuanGroup%2FOpen-Sora-Plan | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a>
-</div> -->
+
+</div>
+</div>
+
+
 
 
 
