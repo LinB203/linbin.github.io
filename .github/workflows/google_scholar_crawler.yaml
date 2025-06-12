@@ -1,0 +1,122 @@
+# name: Get Citation Data
+
+# on: 
+#   page_build: 
+#   schedule:
+#     - cron: '0 8 * * *'
+
+# jobs:
+#   build:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v2
+      
+#       # Step 1: Install Reqs
+#       - name: Install Reqs
+#         run: |
+#           sudo apt-get install python3-setuptools
+          
+#       # Step 2: Change Directory to google_scholar_crawler
+#       - name: Change Directory to google_scholar_crawler
+#         run: |
+#           cd ./google_scholar_crawler
+          
+#       # Step 3: Install Python Requirements
+#       - name: Install Python Requirements
+#         run: |
+#           cd ./google_scholar_crawler
+#           pip install -r requirements.txt
+          
+#       # Step 4: Run the Python Script (main.py)
+#       - name: Run Python Script
+#         run: |
+#           cd ./google_scholar_crawler
+#           python main.py
+          
+#       # Step 5: Change Directory to Results
+#       - name: Change Directory to Results
+#         run: |
+#           # cd ./google_scholar_crawler
+#           cd ./google_scholar_crawler/results
+          
+#       # Step 6: Initialize Git Repository
+#       - name: Initialize Git Repository
+#         run: |
+#           cd ./google_scholar_crawler/results
+#           git init
+          
+#       # Step 7: Configure Git User Name
+#       - name: Configure Git User Name
+#         run: |
+#           cd ./google_scholar_crawler/results
+#           git config --local user.name "${GITHUB_ACTOR}"
+          
+#       # Step 8: Set Remote Repository URL
+#       - name: Set Remote Repository URL
+#         run: |
+#           cd ./google_scholar_crawler/results
+#           export remote_repo="https://${GITHUB_ACTOR}:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git"
+          
+#       # Step 9: Add Files to Git
+#       - name: Add Files to Git
+#         run: |
+#           cd ./google_scholar_crawler/results
+#           git add *.json
+          
+#       # Step 10: Commit Changes in Git
+#       - name: Commit Changes in Git
+#         run: |
+#           cd ./google_scholar_crawler/results
+#           git commit -m "Updated Citation Data"
+          
+#       # Step 11: Push Changes to Remote Repository
+#       - name: Push Changes to Remote Repository
+#         run: |
+#           cd ./google_scholar_crawler/results
+#           git push "${remote_repo}" HEAD:google-scholar-stats --force
+#         env:
+#           GOOGLE_SCHOLAR_ID: ${{ secrets.GOOGLE_SCHOLAR_ID }}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+name: Get Citation Data
+
+on: 
+ page_build: 
+ schedule:
+  - cron:  '0 8 * * *'
+
+jobs:
+ build:
+   runs-on: ubuntu-latest
+   steps:
+   - uses: actions/checkout@v2
+   - name: Install Reqs
+     run: |
+       sudo apt-get install python3-setuptools
+   - name: Run
+     run: |
+       cd ./google_scholar_crawler
+       pip install -r requirements.txt
+       python main.py
+       cd ./results
+       git init
+       git config --local user.name "${GITHUB_ACTOR}"
+       export remote_repo="https://${GITHUB_ACTOR}:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git"
+       git add *.json
+       git commit -m "Updated Citation Data"
+       git push "${remote_repo}" HEAD:google-scholar-stats --force
+     env: 
+       GOOGLE_SCHOLAR_ID: ${{ secrets.GOOGLE_SCHOLAR_ID }}
