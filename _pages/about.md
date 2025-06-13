@@ -192,7 +192,7 @@ My full paper list is shown at [my google scholar](https://scholar.google.com/ci
 <body>
 
     <div class="map-container">
-        <a href="https://clustrmaps.com/site/1c6lz" title="ClustrMaps"><img src="//www.clustrmaps.com/map_v2.png?d=-w86Ke_V1FU0eaSWcZeVi8Ab-kr-ckgbd_suvmQBYN0&cl=ffffff"></a>
+        <script type="text/javascript" id="clustrmaps" src="//clustrmaps.com/map_v2.js?d=-w86Ke_V1FU0eaSWcZeVi8Ab-kr-ckgbd_suvmQBYN0&cl=ffffff&w=a"></script>
     </div>
 
 </body>
