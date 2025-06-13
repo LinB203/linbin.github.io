@@ -12,7 +12,7 @@ redirect_from:
 
 <!-- I am a third-year Ph.D. candidate of Computer Science at College of Electron and Computer Engineering, Peking University, advised by Prof. Li Yuan. Before this, I got a B.E. degree of Computer Science at College of Information Engineering, Sichuan Agricultural University. -->
 
-I am a **third-year Master** of Computer Science at **[College of Electron and Computer Engineering](https://www.ece.pku.edu.cn/index.htm)**, **[Peking University (PKU)](https://www.pku.edu.cn/)**, advised by Prof. **[Li Yuan (PKU, 袁粒)](https://yuanli2333.github.io/)**. 
+I am a **third-year Ph.D. candidate (expected: 2028)** of Computer Science at **[College of Electron and Computer Engineering](https://www.ece.pku.edu.cn/index.htm)**, **[Peking University (PKU)](https://www.pku.edu.cn/)**, advised by Prof. **[Li Yuan (PKU, 袁粒)](https://yuanli2333.github.io/)**. 
 
 <!-- Before this, I got a B.E. degree of Computer Science at [College of Information Engineering](https://xxgc.sicau.edu.cn/), [Sichuan Agricultural University(SICAU)](https://www.sicau.edu.cn/). -->
 
@@ -160,5 +160,5 @@ My full paper list is shown at [my google scholar](https://scholar.google.com/ci
 
 
 # 📖 Educations
-- **2023.09 - now**, Master, College of Electron and Computer Engineering, Peking University.
+- **2023.09 - now (expected: 2028)**, Ph.D. candidate, College of Electron and Computer Engineering, Peking University.
 - **2019.09 - 2023.06**, Undergraduate, College of Information Engineering, Sichuan Agricultural University
