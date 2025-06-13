@@ -114,7 +114,7 @@ My huggingface at 🤗 [Huggingface home](https://huggingface.co/LanguageBind).
 
 [WF-VAE: Enhancing Video VAE by Wavelet-Driven Energy Flow for Latent Video Diffusion Model](https://arxiv.org/abs/2411.17459)
 
-Zongjian Li, **Bin Lin\***, Yang Ye, Liuhan Chen, Xinhua Cheng, Shenghai Yuan, Li Yuan 【2024.11】 <br>
+Zongjian Li\*, **Bin Lin\***, Yang Ye, Liuhan Chen, Xinhua Cheng, Shenghai Yuan, Li Yuan 【2024.11】 <br>
 [![arXiv](https://img.shields.io/badge/Arxiv-2411.17459-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2411.17459)   [![](https://img.shields.io/github/stars/PKU-YuanGroup/WF-VAE?style=social&label=Code+Stars)](https://github.com/PKU-YuanGroup/WF-VAE)
 
 </div>
@@ -127,7 +127,7 @@ Zongjian Li, **Bin Lin\***, Yang Ye, Liuhan Chen, Xinhua Cheng, Shenghai Yuan, L
 
 [LanguageBind: Extending Video-Language Pretraining to N-modality by Language-based Semantic Alignment](https://arxiv.org/abs/2310.01852)
 
-Bin Zhu, **Bin Lin\***, Munan Ning, Yang Yan, Jiaxi Cui, HongFa Wang, Yatian Pang, Wenhao Jiang, Junwu Zhang, Zongwei Li, Wancai Zhang, Zhifeng Li, Wei Liu, Li Yuan 【2023.10】 <br>
+Bin Zhu\*, **Bin Lin\***, Munan Ning, Yang Yan, Jiaxi Cui, HongFa Wang, Yatian Pang, Wenhao Jiang, Junwu Zhang, Zongwei Li, Wancai Zhang, Zhifeng Li, Wei Liu, Li Yuan 【2023.10】 <br>
 [![arXiv](https://img.shields.io/badge/Arxiv-2310.01852-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2310.01852)   [![](https://img.shields.io/github/stars/PKU-YuanGroup/LanguageBind?style=social&label=Code+Stars)](https://github.com/PKU-YuanGroup/LanguageBind)
 
 </div>
@@ -149,6 +149,8 @@ My full paper list is shown at [my google scholar](https://scholar.google.com/ci
 - ``NeurIPS 2024 Workshop`` [TaxDiff: Taxonomic-Guided Diffusion Model for Protein Sequence Generation](https://arxiv.org/abs/2402.17156), Lin Zongying, Li Hao, Lv Liuzhenghao, **Bin Lin**, et al. [![arXiv](https://img.shields.io/badge/Arxiv-2402.17156-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2402.17156)   [![](https://img.shields.io/github/stars/PKU-YuanGroup/TaxDiff?style=social&label=Code+Stars)](https://github.com/PKU-YuanGroup/TaxDiff)
 
 - ``Preprint`` [WISE: A World Knowledge-Informed Semantic Evaluation for Text-to-Image Generation](https://arxiv.org/abs/2503.07265), Yuwei Niu, Munan Ning, Mengren Zheng, **Bin Lin**, et al. [![arXiv](https://img.shields.io/badge/Arxiv-2503.07265-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2503.07265)   [![](https://img.shields.io/github/stars/PKU-YuanGroup/WISE?style=social&label=Code+Stars)](https://github.com/PKU-YuanGroup/WISE)
+
+- ``Preprint`` [ImgEdit: A Unified Image Editing Dataset and Benchmark](https://arxiv.org/abs/2505.20275), Yang Ye\*, Xianyi He\*, Zongjian Li\*, **Bin Lin\***, et al. [![arXiv](https://img.shields.io/badge/Arxiv-2503.07265-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2505.20275)   [![](https://img.shields.io/github/stars/PKU-YuanGroup/ImgEdit?style=social&label=Code+Stars)](https://github.com/PKU-YuanGroup/ImgEdit)
 
 
 # 🎖️ Honors and Awards
