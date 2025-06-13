@@ -181,7 +181,7 @@ My full paper list is shown at [my google scholar](https://scholar.google.com/ci
     <title>ClustrMaps Globe</title>
     <style>
         .map-container {
-            width: 30vw; /* 让地图宽度占屏幕 20% */
+            width: 40vw; /* 让地图宽度占屏幕 20% */
             margin: 0 auto; /* 水平居中 */
             display: flex;
             justify-content: center;
@@ -192,7 +192,7 @@ My full paper list is shown at [my google scholar](https://scholar.google.com/ci
 <body>
 
     <div class="map-container">
-        <script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=a&t=tt&d=dfUoSc6uP1vWgs2fZpQ0rXTSEA-jke2-e2F1P09mahk&co=2d78ad&cmo=3acc3a&cmn=ff5353&ct=ffffff'></script>
+        <a href="https://clustrmaps.com/site/1c6lz" title="ClustrMaps"><img src="//www.clustrmaps.com/map_v2.png?d=-w86Ke_V1FU0eaSWcZeVi8Ab-kr-ckgbd_suvmQBYN0&cl=ffffff"></a>
     </div>
 
 </body>
