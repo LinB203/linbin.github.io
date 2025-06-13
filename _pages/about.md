@@ -51,7 +51,7 @@ My huggingface at 🤗 [Huggingface home](https://huggingface.co/LanguageBind).
 
 [Open-Sora Plan: Open-Source Large Video Generation Model](https://arxiv.org/abs/2412.00131)
 
-**Bin Lin\***, Yunyang Ge\*, Xinhua Cheng\*, Zongjian Li, Bin Zhu, Shaodong Wang, Xianyi He, Yang Ye, Shenghai Yuan, Liuhan Chen, Tanghui Jia, Junwu Zhang, Zhenyu Tang, Yatian Pang, Bin She, Cen Yan, Zhiheng Hu, Xiaoyi Dong, Lin Chen, Zhang Pan, Xing Zhou, Shaoling Dong, Yonghong Tian, Li Yuan. 【<span class='show_paper_citations' data='GCOVDKoAAAAJ:YOwf2qJgpHMC'></span>】 <br>
+**Bin Lin\***, Yunyang Ge\*, Xinhua Cheng\*, Zongjian Li, Bin Zhu, Shaodong Wang, Xianyi He, Yang Ye, Shenghai Yuan, Liuhan Chen, Tanghui Jia, Junwu Zhang, Zhenyu Tang, Yatian Pang, Bin She, Cen Yan, Zhiheng Hu, Xiaoyi Dong, Lin Chen, Zhang Pan, Xing Zhou, Shaoling Dong, Yonghong Tian, Li Yuan. <span class='show_paper_citations' data='GCOVDKoAAAAJ:YOwf2qJgpHMC'></span> <br>
 <b style="color: #ff0000;">The first open-source 3D full-attention video generation model.</b>
 
 <b style="color: #ff0000;">The first open-source causal VAE for video.</b>
@@ -73,7 +73,7 @@ My huggingface at 🤗 [Huggingface home](https://huggingface.co/LanguageBind).
 
 [UniWorld-V1: High-Resolution Semantic Encoders for Unified Visual Understanding and Generation](https://arxiv.org/abs/2506.03147)
 
-**Bin Lin**, Zongjian Li, Xinhua Cheng, Yuwei Niu, Yang Ye, Xianyi He, Shenghai Yuan, Wangbo Yu, Shaodong Wang, Yunyang Ge, Yatian Pang, Li Yuan 【2025.06】 <br>
+**Bin Lin**, Zongjian Li, Xinhua Cheng, Yuwei Niu, Yang Ye, Xianyi He, Shenghai Yuan, Wangbo Yu, Shaodong Wang, Yunyang Ge, Yatian Pang, Li Yuan <span class='show_paper_citations' data='GCOVDKoAAAAJ:hFOr9nPyWt4C'></span> <br>
 
 <b style="color: #ff0000;">2.7M samples enable 20+ tasks, including visual understanding, generation, and manipulation.</b>
 
@@ -89,7 +89,7 @@ My huggingface at 🤗 [Huggingface home](https://huggingface.co/LanguageBind).
 
 [Video-LLaVA: Learning United Visual Representation by Alignment Before Projection](https://arxiv.org/abs/2311.10122)
 
-**Bin Lin**, Yang Ye, Bin Zhu, Jiaxi Cui, Munan Ning, Peng Jin, Li Yuan 【2023.11】 <br>
+**Bin Lin**, Yang Ye, Bin Zhu, Jiaxi Cui, Munan Ning, Peng Jin, Li Yuan <span class='show_paper_citations' data='GCOVDKoAAAAJ:UebtZRa9Y70C'></span> <br>
 
 
 <b style="color: #ff0000;">Top 1 of the <a href='https://resources.paperdigest.org/2025/03/most-influential-emnlp-papers-2025-03-version'>Most Influential EMNLP 2025 Papers</a>！</b>
@@ -107,7 +107,7 @@ My huggingface at 🤗 [Huggingface home](https://huggingface.co/LanguageBind).
 
 [MoE-LLaVA: Mixture of Experts for Large Vision-Language Models](https://arxiv.org/abs/2401.15947)
 
-**Bin Lin**, Zhenyu Tang, Yang Ye, Jinfa Huang, Junwu Zhang, Yatian Pang, Peng Jin, Munan Ning, Jiebo Luo, Li Yuan 【2024.01】 <br>
+**Bin Lin**, Zhenyu Tang, Yang Ye, Jinfa Huang, Junwu Zhang, Yatian Pang, Peng Jin, Munan Ning, Jiebo Luo, Li Yuan <span class='show_paper_citations' data='GCOVDKoAAAAJ:Se3iqnhoufwC'></span> <br>
 [![arXiv](https://img.shields.io/badge/Arxiv-2401.15947-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2401.15947)   [![](https://img.shields.io/github/stars/PKU-YuanGroup/MoE-LLaVA?style=social&label=Code+Stars)](https://github.com/PKU-YuanGroup/MoE-LLaVA)
 
 </div>
@@ -120,7 +120,7 @@ My huggingface at 🤗 [Huggingface home](https://huggingface.co/LanguageBind).
 
 [WF-VAE: Enhancing Video VAE by Wavelet-Driven Energy Flow for Latent Video Diffusion Model](https://arxiv.org/abs/2411.17459)
 
-Zongjian Li\*, **Bin Lin\***, Yang Ye, Liuhan Chen, Xinhua Cheng, Shenghai Yuan, Li Yuan 【2024.11】 <br>
+Zongjian Li\*, **Bin Lin\***, Yang Ye, Liuhan Chen, Xinhua Cheng, Shenghai Yuan, Li Yuan <span class='show_paper_citations' data='GCOVDKoAAAAJ:ULOm3_A8WrAC'></span> <br>
 [![arXiv](https://img.shields.io/badge/Arxiv-2411.17459-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2411.17459)   [![](https://img.shields.io/github/stars/PKU-YuanGroup/WF-VAE?style=social&label=Code+Stars)](https://github.com/PKU-YuanGroup/WF-VAE)
 
 </div>
@@ -133,7 +133,7 @@ Zongjian Li\*, **Bin Lin\***, Yang Ye, Liuhan Chen, Xinhua Cheng, Shenghai Yuan,
 
 [LanguageBind: Extending Video-Language Pretraining to N-modality by Language-based Semantic Alignment](https://arxiv.org/abs/2310.01852)
 
-Bin Zhu\*, **Bin Lin\***, Munan Ning, Yang Yan, Jiaxi Cui, HongFa Wang, Yatian Pang, Wenhao Jiang, Junwu Zhang, Zongwei Li, Wancai Zhang, Zhifeng Li, Wei Liu, Li Yuan 【2023.10】 <br>
+Bin Zhu\*, **Bin Lin\***, Munan Ning, Yang Yan, Jiaxi Cui, HongFa Wang, Yatian Pang, Wenhao Jiang, Junwu Zhang, Zongwei Li, Wancai Zhang, Zhifeng Li, Wei Liu, Li Yuan <span class='show_paper_citations' data='GCOVDKoAAAAJ:0EnyYjriUFMC'></span> <br>
 [![arXiv](https://img.shields.io/badge/Arxiv-2310.01852-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2310.01852)   [![](https://img.shields.io/github/stars/PKU-YuanGroup/LanguageBind?style=social&label=Code+Stars)](https://github.com/PKU-YuanGroup/LanguageBind)
 
 </div>
@@ -144,19 +144,19 @@ Bin Zhu\*, **Bin Lin\***, Munan Ning, Yang Yan, Jiaxi Cui, HongFa Wang, Yatian P
 My full paper list is shown at [my google scholar](https://scholar.google.com/citations?user=GCOVDKoAAAAJ&hl=en).
 
 
-- ``Nature Communications`` [BASALT refines binning from metagenomic data and increases resolution of genome-resolved metagenomic analysis](https://arxiv.org/abs/2404.05014), Zhiguang Qiu, Li Yuan, Chun-Ang Lian, **Bin Lin**, et al. [![website](https://img.shields.io/badge/Paper-BASALT-orange?logo=homepage)](https://www.nature.com/articles/s41467-024-46539-7) 
+- ``Nature Communications`` [BASALT refines binning from metagenomic data and increases resolution of genome-resolved metagenomic analysis](https://arxiv.org/abs/2404.05014), Zhiguang Qiu, Li Yuan, Chun-Ang Lian, **Bin Lin**, et al. [![website](https://img.shields.io/badge/Paper-BASALT-orange?logo=homepage)](https://www.nature.com/articles/s41467-024-46539-7) <span class='show_paper_citations' data='GCOVDKoAAAAJ:LkGwnXOMwfcC'></span>
 
-- ``TPAMI`` [MagicTime: Time-lapse Video Generation Models as Metamorphic Simulators](https://arxiv.org/abs/2404.05014), Shenghai Yuan, Jinfa Huang, Yujun Shi, Yongqi Xu, Ruijie Zhu, **Bin Lin**, et al. [![arXiv](https://img.shields.io/badge/Arxiv-2404.05014-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2406.04325)   [![](https://img.shields.io/github/stars/PKU-YuanGroup/MagicTime?style=social&label=Code+Stars)](https://github.com/PKU-YuanGroup/MagicTime)
+- ``TPAMI`` [MagicTime: Time-lapse Video Generation Models as Metamorphic Simulators](https://arxiv.org/abs/2404.05014), Shenghai Yuan, Jinfa Huang, Yujun Shi, Yongqi Xu, Ruijie Zhu, **Bin Lin**, et al. [![arXiv](https://img.shields.io/badge/Arxiv-2404.05014-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2406.04325)   [![](https://img.shields.io/github/stars/PKU-YuanGroup/MagicTime?style=social&label=Code+Stars)](https://github.com/PKU-YuanGroup/MagicTime) <span class='show_paper_citations' data='GCOVDKoAAAAJ:5nxA0vEk-isC'></span>
 
-- ``ICME 2025`` [OD-VAE: An Omni-dimensional Video Compressor for Improving Latent Video Diffusion Model](https://arxiv.org/abs/2409.01199), Liuhan Chen, Zongjian Li, **Bin Lin**, et al. [![arXiv](https://img.shields.io/badge/Arxiv-2409.01199-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2402.17156)   [![](https://img.shields.io/github/stars/PKU-YuanGroup/Open-Sora-Plan?style=social&label=Code+Stars)](https://github.com/PKU-YuanGroup/Open-Sora-Plan)
+- ``ICME 2025`` [OD-VAE: An Omni-dimensional Video Compressor for Improving Latent Video Diffusion Model](https://arxiv.org/abs/2409.01199), Liuhan Chen, Zongjian Li, **Bin Lin**, et al. [![arXiv](https://img.shields.io/badge/Arxiv-2409.01199-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2402.17156)   [![](https://img.shields.io/github/stars/PKU-YuanGroup/Open-Sora-Plan?style=social&label=Code+Stars)](https://github.com/PKU-YuanGroup/Open-Sora-Plan) <span class='show_paper_citations' data='GCOVDKoAAAAJ:KlAtU1dfN6UC'></span>
 
-- ``NeurIPS 2024`` [ShareGPT4Video: Improving Video Understanding and Generation with Better Captions](https://arxiv.org/abs/2406.04325), Lin Chen, Xilin Wei, Jinsong Li, Xiaoyi Dong, Pan Zhang, Yuhang Zang, Zehui Chen, Haodong Duan, **Bin Lin**, et al. [![arXiv](https://img.shields.io/badge/Arxiv-2406.04325-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2406.04325)   [![](https://img.shields.io/github/stars/ShareGPT4Omni/ShareGPT4Video?style=social&label=Code+Stars)](https://github.com/ShareGPT4Omni/ShareGPT4Video)
+- ``NeurIPS 2024`` [ShareGPT4Video: Improving Video Understanding and Generation with Better Captions](https://arxiv.org/abs/2406.04325), Lin Chen, Xilin Wei, Jinsong Li, Xiaoyi Dong, Pan Zhang, Yuhang Zang, Zehui Chen, Haodong Duan, **Bin Lin**, et al. [![arXiv](https://img.shields.io/badge/Arxiv-2406.04325-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2406.04325)   [![](https://img.shields.io/github/stars/ShareGPT4Omni/ShareGPT4Video?style=social&label=Code+Stars)](https://github.com/ShareGPT4Omni/ShareGPT4Video) <span class='show_paper_citations' data='GCOVDKoAAAAJ:MXK_kJrjxJIC'></span>
 
-- ``NeurIPS 2024 Workshop`` [TaxDiff: Taxonomic-Guided Diffusion Model for Protein Sequence Generation](https://arxiv.org/abs/2402.17156), Lin Zongying, Li Hao, Lv Liuzhenghao, **Bin Lin**, et al. [![arXiv](https://img.shields.io/badge/Arxiv-2402.17156-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2402.17156)   [![](https://img.shields.io/github/stars/PKU-YuanGroup/TaxDiff?style=social&label=Code+Stars)](https://github.com/PKU-YuanGroup/TaxDiff)
+- ``NeurIPS 2024 Workshop`` [TaxDiff: Taxonomic-Guided Diffusion Model for Protein Sequence Generation](https://arxiv.org/abs/2402.17156), Lin Zongying, Li Hao, Lv Liuzhenghao, **Bin Lin**, et al. [![arXiv](https://img.shields.io/badge/Arxiv-2402.17156-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2402.17156)   [![](https://img.shields.io/github/stars/PKU-YuanGroup/TaxDiff?style=social&label=Code+Stars)](https://github.com/PKU-YuanGroup/TaxDiff) <span class='show_paper_citations' data='GCOVDKoAAAAJ:M3ejUd6NZC8C'></span>
 
-- ``Preprint`` [WISE: A World Knowledge-Informed Semantic Evaluation for Text-to-Image Generation](https://arxiv.org/abs/2503.07265), Yuwei Niu, Munan Ning, Mengren Zheng, **Bin Lin**, et al. [![arXiv](https://img.shields.io/badge/Arxiv-2503.07265-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2503.07265)   [![](https://img.shields.io/github/stars/PKU-YuanGroup/WISE?style=social&label=Code+Stars)](https://github.com/PKU-YuanGroup/WISE)
+- ``Preprint`` [WISE: A World Knowledge-Informed Semantic Evaluation for Text-to-Image Generation](https://arxiv.org/abs/2503.07265), Yuwei Niu, Munan Ning, Mengren Zheng, **Bin Lin**, et al. [![arXiv](https://img.shields.io/badge/Arxiv-2503.07265-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2503.07265)   [![](https://img.shields.io/github/stars/PKU-YuanGroup/WISE?style=social&label=Code+Stars)](https://github.com/PKU-YuanGroup/WISE) <span class='show_paper_citations' data='GCOVDKoAAAAJ:4DMP91E08xMC'></span>
 
-- ``Preprint`` [ImgEdit: A Unified Image Editing Dataset and Benchmark](https://arxiv.org/abs/2505.20275), Yang Ye\*, Xianyi He\*, Zongjian Li\*, **Bin Lin\***, et al. [![arXiv](https://img.shields.io/badge/Arxiv-2503.07265-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2505.20275)   [![](https://img.shields.io/github/stars/PKU-YuanGroup/ImgEdit?style=social&label=Code+Stars)](https://github.com/PKU-YuanGroup/ImgEdit)
+- ``Preprint`` [ImgEdit: A Unified Image Editing Dataset and Benchmark](https://arxiv.org/abs/2505.20275), Yang Ye\*, Xianyi He\*, Zongjian Li\*, **Bin Lin\***, et al. [![arXiv](https://img.shields.io/badge/Arxiv-2503.07265-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2505.20275)   [![](https://img.shields.io/github/stars/PKU-YuanGroup/ImgEdit?style=social&label=Code+Stars)](https://github.com/PKU-YuanGroup/ImgEdit) <span class='show_paper_citations' data='GCOVDKoAAAAJ:-f6ydRqryjwC'></span>
 
 
 # 🎖️ Honors and Awards
