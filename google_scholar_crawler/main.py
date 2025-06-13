@@ -29,26 +29,37 @@ import json
 from datetime import datetime
 import os
 from tqdm import tqdm  # Importing tqdm for the progress bar
+max_attempts = 100
+wait_seconds = 60  # 10 minutes
 
-# Setup proxy
-pg = ProxyGenerator()
-pg.FreeProxies()  # Use free rotating proxies
-scholarly.use_proxy(pg)
-
-# Function to add progress
-def process_progress_bar(total, desc):
-    return tqdm(total=total, desc=desc, ncols=100)
-
-# Search for author
-author_id = 'GCOVDKoAAAAJ'
-print(f"Searching for author with ID: {author_id}")
-author = scholarly.search_author_id(author_id)
-
-# Create a progress bar for filling in author details
-progress = process_progress_bar(1, "Filling author data")
-scholarly.fill(author, sections=['basics', 'indices', 'counts', 'publications'])
-progress.update(1)  # Update the progress bar after filling details
-progress.close()
+for attempt in range(1, max_attempts + 1):
+    try:
+        # Setup proxy
+        pg = ProxyGenerator()
+        pg.FreeProxies()  # Use free rotating proxies
+        scholarly.use_proxy(pg)
+        
+        # Function to add progress
+        def process_progress_bar(total, desc):
+            return tqdm(total=total, desc=desc, ncols=100)
+        
+        # Search for author
+        author_id = 'GCOVDKoAAAAJ'
+        print(f"Searching for author with ID: {author_id}")
+        author = scholarly.search_author_id(author_id)
+        
+        # Create a progress bar for filling in author details
+        progress = process_progress_bar(1, "Filling author data")
+        scholarly.fill(author, sections=['basics', 'indices', 'counts', 'publications'])
+        progress.update(1)  # Update the progress bar after filling details
+        progress.close()
+        print(f"Attempt {attempt} success")
+        break  # Exit loop on first success
+    except Exception as e:
+        print(f"Attempt {attempt} failed with error: {e}")
+        time.sleep(wait_seconds)
+else:
+    print("All 100 attempts failed.")
 
 # Log the details of the author
 name = author['name']
