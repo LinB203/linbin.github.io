@@ -181,7 +181,7 @@ My full paper list is shown at [my google scholar](https://scholar.google.com/ci
     <title>ClustrMaps Globe</title>
     <style>
         .map-container {
-            width: 40vw; /* 让地图宽度占屏幕 20% */
+            width: 20vw; /* 让地图宽度占屏幕 20% */
             margin: 0 auto; /* 水平居中 */
             display: flex;
             justify-content: center;
