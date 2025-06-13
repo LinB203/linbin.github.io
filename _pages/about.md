@@ -170,3 +170,30 @@ My full paper list is shown at [my google scholar](https://scholar.google.com/ci
 # 📖 Educations
 - **2023.09 - now (expected: 2028)**, Ph.D. candidate, College of Electron and Computer Engineering, Peking University.
 - **2019.09 - 2023.06**, Undergraduate, College of Information Engineering, Sichuan Agricultural University
+
+
+
+
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClustrMaps Globe</title>
+    <style>
+        .map-container {
+            width: 30vw; /* 让地图宽度占屏幕 20% */
+            margin: 0 auto; /* 水平居中 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="map-container">
+        <script type='text/javascript' id='clustrmaps' src='//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=a&t=tt&d=dfUoSc6uP1vWgs2fZpQ0rXTSEA-jke2-e2F1P09mahk&co=2d78ad&cmo=3acc3a&cmn=ff5353&ct=ffffff'></script>
+    </div>
+
+</body>
+</html>
