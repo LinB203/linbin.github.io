@@ -29,6 +29,8 @@ import json
 from datetime import datetime
 import os
 from tqdm import tqdm  # Importing tqdm for the progress bar
+import time
+
 max_attempts = 100
 wait_seconds = 60  # 10 minutes
 
