@@ -10,7 +10,6 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-<!-- I am a third-year Ph.D. candidate of Computer Science at College of Electron and Computer Engineering, Peking University, advised by Prof. Li Yuan. Before this, I got a B.E. degree of Computer Science at College of Information Engineering, Sichuan Agricultural University. -->
 
 I am a **third-year Ph.D. candidate (expected: 2028)** of Computer Science at **[College of Electron and Computer Engineering](https://www.ece.pku.edu.cn/index.htm)**, **[Peking University (PKU)](https://www.pku.edu.cn/)**, advised by Prof. **[Li Yuan (PKU, 袁粒)](https://yuanli2333.github.io/)**. 
 
