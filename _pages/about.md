@@ -51,7 +51,7 @@ My huggingface at 🤗 [Huggingface home](https://huggingface.co/LanguageBind).
 
 [Open-Sora Plan: Open-Source Large Video Generation Model](https://arxiv.org/abs/2412.00131)
 
-**Bin Lin\***, Yunyang Ge\*, Xinhua Cheng\*, Zongjian Li, Bin Zhu, Shaodong Wang, Xianyi He, Yang Ye, Shenghai Yuan, Liuhan Chen, Tanghui Jia, Junwu Zhang, Zhenyu Tang, Yatian Pang, Bin She, Cen Yan, Zhiheng Hu, Xiaoyi Dong, Lin Chen, Zhang Pan, Xing Zhou, Shaoling Dong, Yonghong Tian, Li Yuan. 【2024.03】 <br>
+**Bin Lin\***, Yunyang Ge\*, Xinhua Cheng\*, Zongjian Li, Bin Zhu, Shaodong Wang, Xianyi He, Yang Ye, Shenghai Yuan, Liuhan Chen, Tanghui Jia, Junwu Zhang, Zhenyu Tang, Yatian Pang, Bin She, Cen Yan, Zhiheng Hu, Xiaoyi Dong, Lin Chen, Zhang Pan, Xing Zhou, Shaoling Dong, Yonghong Tian, Li Yuan. 【<span class='show_paper_citations' data='GCOVDKoAAAAJ:YOwf2qJgpHMC'></span>】 <br>
 <b style="color: #ff0000;">The first open-source 3D full-attention video generation model.</b>
 
 <b style="color: #ff0000;">The first open-source causal VAE for video.</b>
