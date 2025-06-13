@@ -23,12 +23,17 @@
 # with open(f'results/gs_data_shieldsio.json', 'w') as outfile:
 #     json.dump(shieldio_data, outfile, ensure_ascii=False)
 
-from scholarly import scholarly
+from scholarly import scholarly, ProxyGenerator
 import jsonpickle
 import json
 from datetime import datetime
 import os
 from tqdm import tqdm  # Importing tqdm for the progress bar
+
+# Setup proxy
+pg = ProxyGenerator()
+pg.FreeProxies()  # Use free rotating proxies
+scholarly.use_proxy(pg)
 
 # Function to add progress
 def process_progress_bar(total, desc):
