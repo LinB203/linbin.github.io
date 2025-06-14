@@ -167,7 +167,7 @@ My full paper list is shown at [my google scholar](https://scholar.google.com/ci
 - ``Preprint`` [ImgEdit: A Unified Image Editing Dataset and Benchmark](https://arxiv.org/abs/2505.20275), Yang Ye\*, Xianyi He\*, Zongjian Li\*, **Bin Lin\***, et al. [![arXiv](https://img.shields.io/badge/Arxiv-2503.07265-b31b1b.svg?logo=arXiv)](https://arxiv.org/abs/2505.20275)   [![](https://img.shields.io/github/stars/PKU-YuanGroup/ImgEdit?style=social&label=Code+Stars)](https://github.com/PKU-YuanGroup/ImgEdit) <span class='show_paper_citations' data='GCOVDKoAAAAJ:-f6ydRqryjwC'></span>
 
 
-# 🎖️ Honors and Awards
+# 🎉 Honors and Awards
 - **2023.06** Outstanding graduates from Sichuan Province, China.
 - **2022.10** National Scholarship (The highest scholarship awarded by the Ministry of Education, China).
 - **2022.11** National First Prize of National Undergraduate Mathematical Modeling Contest.
