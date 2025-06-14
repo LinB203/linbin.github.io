@@ -1,17 +1,17 @@
 # main links links
 main:
   - title: "About Me"
-    url: "/linbin.github.io/#about-me"
+    url: "/#about-me"
 
   - title: "News"
-    url: "/linbin.github.io/#-news"
+    url: "//#-news"
 
   - title: "Publications"
-    url: "/linbin.github.io/#-selected-publications"
+    url: "/#-selected-publications"
 
   - title: "Honors and Awards"
-    url: "/linbin.github.io/#-honors-and-awards"
+    url: "/#-honors-and-awards"
 
   - title: "Educations"
-    url: "/linbin.github.io/#-educations"
+    url: "/#-educations"
 
