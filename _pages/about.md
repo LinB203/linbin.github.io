@@ -21,8 +21,14 @@ redirect_from:
 I am a **third-year Ph.D. candidate (expected: 2028)** of Computer Science at **[College of Electron and Computer Engineering](https://www.ece.pku.edu.cn/index.htm)**, **[Peking University (PKU)](https://www.pku.edu.cn/)**, advised by Prof. **[Li Yuan (PKU, 袁粒)](https://yuanli2333.github.io/)**. 
 
 My research interest includes multi-modal understanding, multi-modal generation and large unified model. <a href='https://scholar.google.com/citations?user=GCOVDKoAAAAJ'><img src="https://img.shields.io/endpoint?url={{ url | url_encode }}&logo=Google%20Scholar&labelColor=f6f6f6&color=9cf&style=flat&label=citations"></a>
- 
-My huggingface at 🤗 [Huggingface home](https://huggingface.co/LanguageBind).
+
+Google Scholar: 🔭 [Google Scholar](https://scholar.google.com/citations?user=GCOVDKoAAAAJ&hl=en).
+
+Hugging Face: 🤗 [Hugging Face](https://huggingface.co/LanguageBind).
+
+PKU Email：📫 linbin.ece@std.pku.edu.cn
+
+Google Email：📫 linbin203279@gmail.com
 
 
 
@@ -39,10 +45,7 @@ My huggingface at 🤗 [Huggingface home](https://huggingface.co/LanguageBind).
 
 
 # 📝 Selected Publications
-*: Co-First Author, Equal Contribution
-
-
-
+*: Co-First Author (Equal Contribution)
 
 <div class='paper-box'><div class='paper-box-image'><div><div class="badge">Preprint</div><img src='images/open-sora-plan.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
