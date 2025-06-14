@@ -43,7 +43,7 @@ Google Email: 📫 linbin203279@gmail.com
 - **2024.09**: &nbsp;🎉🎉 One paper have been accepted by **EMNLP 2025**! <a href='https://github.com/PKU-YuanGroup/Video-LLaVA'>Video-LLaVA</a>！
 - **2024.03**: &nbsp;📣📣 We launch a plan to create a simple and scalable repo, <a href='https://github.com/PKU-YuanGroup/Open-Sora-Plan'>Open-Sora Plan</a>, to reproduce Sora！
 - **2024.01**: &nbsp;🎉🎉 One paper have been accepted by **ICLR 2024**! <a href='https://github.com/PKU-YuanGroup/LanguageBind'>LanguageBind</a>！
-- **2023.06**: &nbsp;📣📣 I received my B.E. degree from [Sichuan Agricultural University (SICAU)](https://www.sicau.edu.cn), awarded the Outstanding Graduate, ranking 1<sup>st</sup>/263 in overall scores for three years (2020-2023)!
+- **2023.06**: &nbsp;📣📣 I received my B.E. degree from [Sichuan Agricultural University (SICAU)](https://www.sicau.edu.cn), awarded the Outstanding Graduate, ranking **1<sup>st</sup>**/263 in overall scores for three years (2020-2023)!
 
 
 # 📝 Selected Publications
