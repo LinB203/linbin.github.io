@@ -22,7 +22,7 @@ I am a **second-year Ph.D. candidate (expected: 2028)** of Computer Science at *
 
 My research interest includes multi-modal understanding, multi-modal generation and large unified model. <a href='https://scholar.google.com/citations?user=GCOVDKoAAAAJ'><img src="https://img.shields.io/endpoint?url={{ url | url_encode }}&logo=Google%20Scholar&labelColor=f6f6f6&color=9cf&style=flat&label=citations"></a>
 
-Google Scholar: 🔭 [Google Scholar](https://scholar.google.com/citations?user=GCOVDKoAAAAJ&hl=en) (full paper list).
+Google Scholar: 🔭 [Google Scholar](https://scholar.google.com/citations?user=GCOVDKoAAAAJ&hl=en) (full public papers).
 
 GitHub: 🐙 [GitHub](https://github.com/LinB203) (full open-source codes).
 
