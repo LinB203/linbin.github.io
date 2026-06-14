@@ -32,7 +32,7 @@ redirect_from:
     <h1 class="hero-name">Bin Lin<span class="cn">林彬</span></h1>
     <p class="hero-role"><span class="lang-en">Ph.D. Candidate in Computer Science</span><span class="lang-zh">计算机科学博士研究生</span></p>
     <p class="hero-affil"><i class="fas fa-university"></i> <span class="lang-en">Peking University</span><span class="lang-zh">北京大学</span> &nbsp;·&nbsp; <i class="fas fa-map-marker-alt"></i> <span class="lang-en">Shenzhen, China</span><span class="lang-zh">中国 · 深圳</span></p>
-    <p class="hero-affil"><i class="fas fa-envelope"></i> <a href="mailto:linbin.ece@stu.pku.edu.cn">linbin.ece@stu.pku.edu.cn</a> &nbsp;·&nbsp; <a href="mailto:linbin203279@gmail.com">linbin203279@gmail.com</a></p>
+    <p class="hero-affil"><i class="fas fa-envelope"></i> <a href="mailto:linbin.ece@stu.pku.edu.cn">linbin.ece@stu.pku.edu.cn</a> <span class="affil-sep">·</span> <a href="mailto:linbin203279@gmail.com">linbin203279@gmail.com</a></p>
 
     <p class="hero-bio lang-en">
       I work on <strong>multimodal large models</strong> — building open, scalable systems that <strong>understand</strong> and <strong>generate</strong> across vision and language, and increasingly <strong>unify</strong> the two. Advised by Prof. <a href="https://yuanli2333.github.io/">Li Yuan (袁粒)</a> at Peking University.
@@ -46,6 +46,14 @@ redirect_from:
     <p class="hero-bio lang-zh">
       我笃信开放研究：我主导并参与了多个被广泛使用的项目，如 <a href="https://github.com/PKU-YuanGroup/Open-Sora-Plan">Open-Sora Plan</a>、<a href="https://github.com/PKU-YuanGroup/UniWorld">UniWorld</a> 和 <a href="https://github.com/PKU-YuanGroup/Video-LLaVA">Video-LLaVA</a>，并为每篇论文开源代码、模型与数据。
     </p>
+
+    <div class="focus-banner">
+      <div class="focus-icon"><i class="fas fa-lightbulb"></i></div>
+      <div class="focus-body">
+        <span class="focus-label"><span class="lang-en">Currently exploring</span><span class="lang-zh">近期研究兴趣</span></span>
+        <span class="focus-text"><span class="lang-en"><strong>Embodied AI</strong> &nbsp;·&nbsp; <strong>autoregressive image generation with decoupled compression and computation</strong><span class="focus-cta">Happy to discuss!</span></span><span class="lang-zh"><strong>具身智能</strong> &nbsp;·&nbsp; <strong>压缩与计算解耦的自回归图片生成</strong><span class="focus-cta">欢迎讨论！</span></span></span>
+      </div>
+    </div>
 
     <div class="tag-row">
       <span class="tag"><span class="lang-en">Multimodal Understanding</span><span class="lang-zh">多模态理解</span></span>
@@ -64,8 +72,8 @@ redirect_from:
 
     <div class="stats">
       <a class="stat" href="https://scholar.google.com/citations?user=GCOVDKoAAAAJ&hl=en" target="_blank" rel="noopener"><div class="num" id="citations-stat">4,700+</div><div class="lbl"><span class="lang-en">Citations</span><span class="lang-zh">总引用量</span></div><div class="stat-period"><span class="lang-en">1 paper 1,700+ · 7 papers 100+</span><span class="lang-zh">1 篇 1,700+ · 7 篇 100+</span></div></a>
-      <a class="stat" href="https://github.com/LinB203" target="_blank" rel="noopener"><div class="num">20K+</div><div class="lbl"><span class="lang-en">GitHub Stars</span><span class="lang-zh">GitHub Stars</span></div></a>
-      <a class="stat" href="https://huggingface.co/LanguageBind" target="_blank" rel="noopener"><div class="num">14M+</div><div class="lbl"><span class="lang-en">Model &amp; Data Downloads</span><span class="lang-zh">模型与数据下载</span></div></a>
+      <a class="stat" href="https://github.com/LinB203" target="_blank" rel="noopener"><div class="num">20,000+</div><div class="lbl"><span class="lang-en">GitHub Stars</span><span class="lang-zh">GitHub Stars</span></div></a>
+      <a class="stat" href="https://huggingface.co/LanguageBind" target="_blank" rel="noopener"><div class="num">14,000,000+</div><div class="lbl"><span class="lang-en">Model &amp; Data Downloads</span><span class="lang-zh">模型与数据下载</span></div></a>
       <a class="stat" href="https://huggingface.co/spaces/TCTF/TCTF" target="_blank" rel="noopener"><div class="num">Top 100</div><div class="lbl"><span class="lang-en">Hugging Face Influencer</span><span class="lang-zh">Hugging Face 影响力</span></div><div class="stat-period">2024.02–2025.01</div></a>
     </div>
 

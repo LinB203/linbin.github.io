@@ -231,8 +231,39 @@ body {
 }
 .hero-affil { font-size: 0.95rem; color: var(--muted); margin: 0 0 1em; }
 .hero-affil i { margin-right: 5px; }
+.affil-sep { color: var(--muted); margin: 0 0.2em; }
 .hero-bio { font-size: 1.02rem; line-height: 1.72; color: var(--text-soft); margin: 0 0 1em; }
 .hero-bio strong { color: var(--text); font-weight: 700; }
+
+/* Currently-exploring highlight (accent-tinted, distinct from the gold award banner) */
+.focus-banner {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  background: linear-gradient(100deg, var(--accent-soft), transparent 72%);
+  border: 1px solid var(--accent-ring);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius-sm);
+  padding: 0.7em 1.05em;
+  margin: 0 0 1.2em;
+}
+.focus-banner .focus-icon {
+  flex: 0 0 auto;
+  width: 34px; height: 34px;
+  display: grid; place-items: center;
+  border-radius: 50%;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 0.95rem;
+}
+.focus-banner .focus-body { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.focus-banner .focus-label {
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;
+  color: var(--accent);
+}
+.focus-banner .focus-text { font-size: 0.9rem; color: var(--text-soft); line-height: 1.5; }
+.focus-banner .focus-text strong { color: var(--text); font-weight: 700; }
+.focus-banner .focus-cta { display: block; margin-top: 2px; color: var(--accent); font-weight: 600; }
 
 .tag-row { display: flex; flex-wrap: wrap; gap: 8px; margin: 0.2em 0 1.2em; }
 .tag {
@@ -283,12 +314,13 @@ body {
   border-radius: var(--radius-sm);
   padding: 0.95em 0.6em;
   text-align: center;
+  min-width: 0;
   box-shadow: var(--shadow-sm);
   transition: transform .18s ease, box-shadow .18s ease;
 }
 .stat:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
 .stat .num {
-  font-size: 1.5rem;
+  font-size: clamp(1.1rem, 3.6vw, 1.5rem);
   font-weight: 800;
   letter-spacing: -0.02em;
   background: linear-gradient(90deg, var(--accent), var(--accent-2));
