@@ -4,8 +4,8 @@
 
 :root {
   --bg: #fafbfc;
-  --bg-glow: radial-gradient(1100px 520px at 75% -10%, rgba(220, 38, 38, 0.10), transparent 60%),
-             radial-gradient(900px 480px at 0% 0%, rgba(225, 29, 72, 0.10), transparent 55%);
+  --bg-glow: radial-gradient(1100px 520px at 75% -10%, rgba(124, 58, 237, 0.10), transparent 60%),
+             radial-gradient(900px 480px at 0% 0%, rgba(79, 70, 229, 0.10), transparent 55%);
   --surface: #ffffff;
   --surface-2: #f3f4f8;
   --text: #131722;
@@ -13,10 +13,10 @@
   --muted: #8b94a1;
   --border: #e9ebf0;
   --border-strong: #d7dbe3;
-  --accent: #dc2626;
-  --accent-2: #e11d48;
-  --accent-soft: rgba(220, 38, 38, 0.10);
-  --accent-ring: rgba(220, 38, 38, 0.24);
+  --accent: #4f46e5;
+  --accent-2: #7c3aed;
+  --accent-soft: rgba(79, 70, 229, 0.10);
+  --accent-ring: rgba(79, 70, 229, 0.22);
   --gold: #d9a40a;
   --gold-soft: rgba(217, 164, 10, 0.12);
   --gold-ring: rgba(217, 164, 10, 0.30);
@@ -31,8 +31,8 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --bg: #0c0e13;
-    --bg-glow: radial-gradient(1100px 520px at 75% -10%, rgba(248, 113, 113, 0.18), transparent 60%),
-               radial-gradient(900px 480px at 0% 0%, rgba(251, 113, 133, 0.16), transparent 55%);
+    --bg-glow: radial-gradient(1100px 520px at 75% -10%, rgba(124, 58, 237, 0.18), transparent 60%),
+               radial-gradient(900px 480px at 0% 0%, rgba(79, 70, 229, 0.16), transparent 55%);
     --surface: #161922;
     --surface-2: #1d212c;
     --text: #e9ebf0;
@@ -40,10 +40,10 @@
     --muted: #7c8595;
     --border: #262b36;
     --border-strong: #333a48;
-    --accent: #f87171;
-    --accent-2: #fb7185;
-    --accent-soft: rgba(248, 113, 113, 0.14);
-    --accent-ring: rgba(248, 113, 113, 0.32);
+    --accent: #818cf8;
+    --accent-2: #c084fc;
+    --accent-soft: rgba(129, 140, 248, 0.14);
+    --accent-ring: rgba(129, 140, 248, 0.30);
     --gold: #f3c14a;
     --gold-soft: rgba(243, 193, 74, 0.13);
     --gold-ring: rgba(243, 193, 74, 0.32);
@@ -54,10 +54,10 @@
 }
 
 /* ----- Selectable accent themes (top-nav color switcher) -----
-   "ruby" (red) is the default (uses the :root values above). Each theme only
+   "indigo" is the default (uses the :root values above). Each theme only
    re-tints the accent + background glow; surfaces/text stay consistent. */
-html[data-theme="indigo"]  { --accent:#4f46e5; --accent-2:#7c3aed; --accent-soft:rgba(79,70,229,.10);   --accent-ring:rgba(79,70,229,.22);
-  --bg-glow: radial-gradient(1100px 520px at 75% -10%, rgba(124,58,237,.10), transparent 60%), radial-gradient(900px 480px at 0% 0%, rgba(79,70,229,.10), transparent 55%); }
+html[data-theme="ruby"]    { --accent:#dc2626; --accent-2:#e11d48; --accent-soft:rgba(220,38,38,.10);   --accent-ring:rgba(220,38,38,.24);
+  --bg-glow: radial-gradient(1100px 520px at 75% -10%, rgba(220,38,38,.10), transparent 60%), radial-gradient(900px 480px at 0% 0%, rgba(225,29,72,.10), transparent 55%); }
 html[data-theme="ocean"]   { --accent:#0284c7; --accent-2:#0891b2; --accent-soft:rgba(2,132,199,.10);  --accent-ring:rgba(2,132,199,.24);
   --bg-glow: radial-gradient(1100px 520px at 75% -10%, rgba(8,145,178,.10), transparent 60%), radial-gradient(900px 480px at 0% 0%, rgba(2,132,199,.10), transparent 55%); }
 html[data-theme="emerald"] { --accent:#059669; --accent-2:#0d9488; --accent-soft:rgba(5,150,105,.10);   --accent-ring:rgba(5,150,105,.24);
@@ -68,8 +68,8 @@ html[data-theme="amber"]   { --accent:#ea580c; --accent-2:#d97706; --accent-soft
   --bg-glow: radial-gradient(1100px 520px at 75% -10%, rgba(217,119,6,.10), transparent 60%), radial-gradient(900px 480px at 0% 0%, rgba(234,88,12,.10), transparent 55%); }
 
 @media (prefers-color-scheme: dark) {
-  html[data-theme="indigo"]  { --accent:#818cf8; --accent-2:#c084fc; --accent-soft:rgba(129,140,248,.14); --accent-ring:rgba(129,140,248,.30);
-    --bg-glow: radial-gradient(1100px 520px at 75% -10%, rgba(124,58,237,.18), transparent 60%), radial-gradient(900px 480px at 0% 0%, rgba(79,70,229,.16), transparent 55%); }
+  html[data-theme="ruby"]    { --accent:#f87171; --accent-2:#fb7185; --accent-soft:rgba(248,113,113,.14); --accent-ring:rgba(248,113,113,.32);
+    --bg-glow: radial-gradient(1100px 520px at 75% -10%, rgba(248,113,113,.18), transparent 60%), radial-gradient(900px 480px at 0% 0%, rgba(251,113,133,.16), transparent 55%); }
   html[data-theme="ocean"]   { --accent:#38bdf8; --accent-2:#22d3ee; --accent-soft:rgba(56,189,248,.14); --accent-ring:rgba(56,189,248,.32);
     --bg-glow: radial-gradient(1100px 520px at 75% -10%, rgba(34,211,238,.16), transparent 60%), radial-gradient(900px 480px at 0% 0%, rgba(56,189,248,.16), transparent 55%); }
   html[data-theme="emerald"] { --accent:#34d399; --accent-2:#2dd4bf; --accent-soft:rgba(52,211,153,.14); --accent-ring:rgba(52,211,153,.32);

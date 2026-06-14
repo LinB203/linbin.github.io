@@ -25,7 +25,7 @@ layout: compress
             {{ content }}
           </section>
           <div class="site-footer-custom">
-            &copy; {{ site.time | date: '%Y' }} Bin Lin (林彬) &middot; Last updated {{ site.time | date: '%b %d, %Y' }}
+            &copy; {{ site.time | date: '%Y' }} Bin Lin (林彬) &middot; Last updated {{ site.time | date: '%b %Y' }}
           </div>
         </div>
       </article>
@@ -33,8 +33,8 @@ layout: compress
 
     <div class="top-controls">
       <div class="theme-switch" id="theme-switch" role="group" aria-label="Accent color">
-        <button type="button" class="theme-dot" data-theme="ruby"    title="Ruby" aria-label="Ruby accent"></button>
         <button type="button" class="theme-dot" data-theme="indigo"  title="Indigo" aria-label="Indigo accent"></button>
+        <button type="button" class="theme-dot" data-theme="ruby"    title="Ruby" aria-label="Ruby accent"></button>
         <button type="button" class="theme-dot" data-theme="ocean"   title="Ocean" aria-label="Ocean accent"></button>
         <button type="button" class="theme-dot" data-theme="emerald" title="Emerald" aria-label="Emerald accent"></button>
         <button type="button" class="theme-dot" data-theme="rose"    title="Rose" aria-label="Rose accent"></button>
@@ -69,15 +69,15 @@ layout: compress
         });
       }
 
-      // ---- Accent theme switcher (Ruby / Indigo / Ocean / Emerald / Rose / Amber), persisted ----
-      var THEMES = ['ruby', 'indigo', 'ocean', 'emerald', 'rose', 'amber'];
-      var savedTheme = 'ruby';
+      // ---- Accent theme switcher (Indigo / Ruby / Ocean / Emerald / Rose / Amber), persisted ----
+      var THEMES = ['indigo', 'ruby', 'ocean', 'emerald', 'rose', 'amber'];
+      var savedTheme = 'indigo';
       try { var st = localStorage.getItem('site-theme'); if (st && THEMES.indexOf(st) >= 0) { savedTheme = st; } } catch (e) {}
       var tq = location.search.match(/[?&]theme=(ruby|indigo|ocean|emerald|rose|amber)\b/);
       if (tq) { savedTheme = tq[1]; }
       var themeDots = [].slice.call(document.querySelectorAll('.theme-dot'));
       function applyTheme(name) {
-        if (THEMES.indexOf(name) < 0) { name = 'ruby'; }
+        if (THEMES.indexOf(name) < 0) { name = 'indigo'; }
         document.documentElement.setAttribute('data-theme', name);
         try { localStorage.setItem('site-theme', name); } catch (e) {}
         themeDots.forEach(function (d) { d.classList.toggle('active', d.getAttribute('data-theme') === name); });
