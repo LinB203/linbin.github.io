@@ -102,14 +102,14 @@ redirect_from:
   </div>
   <div class="feat-info">
     <div class="feat-badges"><span class="feat-venue">Preprint</span><span class="role role-first"><span class="lang-en">First Author</span><span class="lang-zh">第一作者</span></span></div>
-    <!-- TODO: replace href="#" with the arXiv link once the paper is online -->
-    <h3 class="feat-title"><a href="#">GEAR: Guided End-to-End AutoRegression for Image Synthesis</a></h3>
+    <h3 class="feat-title"><a href="/gear/">GEAR: Guided End-to-End AutoRegression for Image Synthesis</a></h3>
     <p class="feat-authors"><span class="me">Bin Lin</span>, Zheyuan Liu, et al., Li Yuan</p>
     <p class="feat-desc"><span class="lang-en">Jointly trains a VQ tokenizer and an autoregressive generator <span class="hl">end-to-end</span>, guided by representation alignment — <span class="hl">up to 10× faster</span> AR training than LlamaGen-REPA, with better spatial features that generalize across quantizers and to text-to-image.</span><span class="lang-zh">将 VQ 分词器与自回归生成器<span class="hl">端到端联合训练</span>，并由表征对齐引导——自回归训练较 LlamaGen-REPA <span class="hl">最高加速 10×</span>，特征更具空间一致性，且可泛化到多种量化器与文生图。</span></p>
     <div class="meta">
-      <a class="chip chip-arxiv" href="#"><i class="fas fa-file-alt"></i> arXiv</a>
+      <a class="chip chip-page" href="/gear/"><i class="fas fa-link"></i> Project Page</a>
+      <a class="chip chip-arxiv" href="/gear/GEAR.pdf"><i class="fas fa-file-alt"></i> arXiv</a>
       <a class="chip chip-code" href="https://github.com/Tencent-Hunyuan/GEAR"><i class="fab fa-github"></i> Code <span class="gh-stars" data-repo="Tencent-Hunyuan/GEAR"><i class="fas fa-star"></i> 0</span></a>
-      <a class="chip chip-hf" href="https://huggingface.co/collections/BinLin203/gear"><span class="hf">🤗</span> Models</a>
+      <a class="chip chip-hf" href="https://huggingface.co/collections/BinLin203/gear-tokenizer"><span class="hf">🤗</span> Models</a>
     </div>
   </div>
 </div>

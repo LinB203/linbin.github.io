@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<!--
+  GEAR project homepage — merged, modern & airy redesign.
+  Hero/authors/teaser (8001) + stat summary cards (8003) + problem 3-cards (8003)
+  + method dual equal-height cards w/ MathJax (8001) + key insights one-per-row (8004)
+  + tabbed quantitative evaluation (8002).
+  Top-left color-theme switcher (default red) + top-right EN/中文 toggle.
+  Preview:  cd homepage_final && python3 -m http.server 8005
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GEAR: Guided End-to-End AutoRegression for Image Synthesis</title>
+<meta name="description" content="GEAR co-trains a VQ tokenizer with its autoregressive generator, so a fresh generator converges up to 10x faster on ImageNet.">
+
+<!-- favicon -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232563eb'/%3E%3Ctext x='16' y='22' font-family='Arial,sans-serif' font-size='18' font-weight='bold' fill='white' text-anchor='middle'%3EG%3C/text%3E%3C/svg%3E">
+
+<!-- Open Graph / Twitter -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="GEAR: Guided End-to-End AutoRegression for Image Synthesis">
+<meta property="og:description" content="GEAR co-trains a VQ tokenizer with its autoregressive generator end-to-end, with up to 10x faster ImageNet gFID convergence and drop-in support across VQ / LFQ / IBQ and text-to-image.">
+<meta property="og:image" content="https://s41.ax1x.com/2026/06/16/pm1kTFe.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="GEAR: Guided End-to-End AutoRegression for Image Synthesis">
+<meta name="twitter:description" content="Co-train a VQ tokenizer with its AR generator end-to-end. Up to 10x faster ImageNet convergence, general across VQ / LFQ / IBQ and text-to-image.">
+<meta name="twitter:image" content="https://s41.ax1x.com/2026/06/16/pm1kTFe.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+:root{
+  /* themeable accent (default = blue) */
+  --accent:#2563eb; --accent-dark:#1d4ed8; --accent-soft:#eaf1fe; --accent-rgb:37,99,235;
+  /* neutrals */
+  --ink:#13171f; --body:#4a515e; --muted:#79808d; --soft:#9aa1ad;
+  --line:#ebedf2; --line2:#f4f5f8; --bg:#ffffff; --tint:#f7f8fb;
+  --link:#2563eb; --good:#15803d; --drop:#e0322b;
+  --maxw:1180px; --reading:760px; --prose:720px;
+  --r:18px; --r2:13px;
+  --sh1:0 1px 2px rgba(17,24,39,.04);
+  --sh2:0 4px 16px rgba(17,24,39,.05);
+  --sh3:0 10px 30px rgba(17,24,39,.07);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--body);
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  font-size:16.5px;line-height:1.72;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:var(--link);text-decoration:none}
+a:hover{color:#1746a8}
+p{margin:0 0 1rem}
+h1,h2,h3,h4{font-family:'Plus Jakarta Sans','Inter',sans-serif;color:var(--ink);margin:0}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px}
+
+section{padding:62px 0 68px;scroll-margin-top:24px}
+section.tint{background:var(--tint)}
+.title{font-size:clamp(1.5rem,2.6vw,2rem);font-weight:800;letter-spacing:-.025em;text-align:center;margin:0 0 8px}
+.title::after{content:"";display:block;width:40px;height:3px;border-radius:3px;background:var(--accent);margin:13px auto 0;opacity:.9}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@keyframes flashpulse{0%{box-shadow:0 0 0 0 rgba(var(--accent-rgb),.5)}25%{box-shadow:0 0 0 5px rgba(var(--accent-rgb),.45)}100%{box-shadow:0 0 0 0 rgba(var(--accent-rgb),0)}}
+.flash{animation:flashpulse 1.1s ease 2}
+.subtitle{font-size:1.02rem;color:var(--muted);text-align:center;max-width:1040px;margin:0 auto 40px;line-height:1.6;text-wrap:balance}
+.nb{white-space:nowrap}
+.minihead{font-size:.76rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);text-align:center;margin:0 0 16px;scroll-margin-top:28px}
+
+/* bilingual */
+.lang-zh{display:none}
+body.zh .lang-zh{display:revert}
+body.zh .lang-en{display:none}
+
+/* ---------- floating controls ---------- */
+#leftrail{position:fixed;top:50%;transform:translateY(-50%);left:12px;z-index:50;
+  width:clamp(40px, calc(50vw - var(--maxw)/2 - 22px), 212px);
+  container-type:inline-size;
+  display:flex;flex-direction:column;align-items:stretch;gap:10px}
+#themebar{display:flex;flex-wrap:wrap;gap:7px 8px;align-items:center;justify-content:center;
+  background:rgba(255,255,255,.8);backdrop-filter:saturate(160%) blur(12px);
+  border:1px solid var(--line);border-radius:12px;padding:7px 9px;box-shadow:var(--sh2)}
+#langbtn{border:none;background:transparent;color:var(--ink);font-family:inherit;font-weight:700;font-size:.78rem;
+  padding:2px 2px;border-radius:8px;cursor:pointer;transition:color .15s}
+#langbtn:hover{color:var(--accent)}
+.bar-div{width:1px;height:14px;background:var(--line);flex:none}
+.swatches{display:flex;flex-wrap:wrap;gap:6px;align-items:center;justify-content:center}
+.swatch{width:15px;height:15px;border-radius:50%;border:2px solid #fff;cursor:pointer;
+  box-shadow:0 0 0 1px rgba(0,0,0,.10);transition:transform .14s}
+.swatch:hover{transform:scale(1.2)}
+.swatch.on{box-shadow:0 0 0 2px var(--ink)}
+
+/* ---------- left section nav (scroll-spy) ---------- */
+#sidenav{display:flex;flex-direction:column;gap:4px;padding:9px;overflow:hidden;
+  background:rgba(255,255,255,.74);backdrop-filter:saturate(160%) blur(12px);
+  border:1px solid var(--line);border-radius:16px;box-shadow:var(--sh2)}
+#sidenav a{display:flex;align-items:center;gap:11px;padding:9px 12px;border-radius:11px;color:var(--muted);
+  font-size:.86rem;font-weight:600;line-height:1;letter-spacing:-.01em;transition:color .16s,background .16s;overflow:hidden}
+#sidenav a .d{width:7px;height:7px;border-radius:50%;background:var(--line);flex:none;transition:.16s}
+#sidenav a .t{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#sidenav a:hover{color:var(--ink);background:var(--line2)}
+#sidenav a:hover .d{background:var(--soft)}
+#sidenav a.on{color:var(--accent);background:var(--accent-soft)}
+#sidenav a.on .d{background:var(--accent);transform:scale(1.25)}
+#sidenav a.sub{padding:6px 12px 6px 26px;font-size:.79rem;font-weight:500;color:var(--soft)}
+#sidenav a.sub .d{width:5px;height:5px}
+#sidenav a.sub:hover{color:var(--body);background:var(--line2)}
+#sidenav a.sub.on{color:var(--accent);background:var(--accent-soft)}
+/* when the rail is too narrow for any label, collapse to left-aligned dots */
+@container (max-width:70px){
+  #sidenav a .t{display:none}
+  #sidenav a{padding:9px 10px}
+}
+@media(max-width:1280px){
+  #leftrail{left:auto;right:16px;top:14px;transform:none;width:auto;align-items:flex-end;container-type:normal}
+  #sidenav{display:none}
+}
+
+/* ---------- hero ---------- */
+.hero{position:relative;padding:18px 0 4px}
+.hero-card{position:relative;max-width:var(--maxw);margin:0 auto;text-align:center;
+  background:#fff;border:1px solid var(--line);border-radius:14px;
+  padding:clamp(22px,2.6vw,30px) clamp(26px,5vw,72px);box-shadow:var(--sh1)}
+.hero h1{font-size:clamp(1.4rem,2.4vw,1.95rem);line-height:1.24;font-weight:800;letter-spacing:-.02em;
+  max-width:860px;margin:0 auto 11px}
+.hero h1 .g{color:var(--accent)}
+.hero .lead{font-size:1.03rem;line-height:1.55;color:var(--muted);max-width:600px;margin:0 auto}
+.hero .lead b{color:var(--ink);font-weight:700}
+.authors{font-size:1.0rem;line-height:1.65;margin:18px auto 0;color:var(--body);max-width:860px}
+.authors a{color:var(--body);font-weight:600;border-bottom:1px solid transparent;transition:.14s}
+.authors a:hover{color:var(--accent);border-color:currentColor}
+.authors .star{color:var(--accent);font-weight:700}
+.affil{color:var(--muted);font-size:.93rem;margin-top:9px}
+.affil b{color:var(--body);font-weight:600}
+.fineprint{color:var(--soft);font-size:.81rem;margin-top:6px}
+.btns{display:flex;flex-wrap:wrap;gap:11px;justify-content:center;margin-top:30px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 22px;border-radius:11px;
+  font-weight:700;font-size:.9rem;transition:transform .12s,box-shadow .15s,background .15s;border:1px solid transparent}
+.btn:hover{transform:translateY(-2px)}
+.btn.primary{background:var(--accent);color:#fff;box-shadow:0 6px 18px rgba(var(--accent-rgb),.32)}
+.btn.primary:hover{background:var(--accent-dark);color:#fff}
+.btn.ghost{background:#fff;color:var(--ink);border-color:var(--line);box-shadow:var(--sh1)}
+.btn.ghost:hover{border-color:var(--soft)}
+
+/* hero stat summary cards (8003 style, modernized) */
+.stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:32px auto 0;max-width:840px}
+.stat{display:block;text-decoration:none;color:inherit;cursor:pointer;background:var(--tint);border:1px solid var(--line);
+  border-radius:10px;padding:18px 14px;text-align:center;transition:border-color .15s,box-shadow .15s,transform .15s}
+.stat:hover{border-color:var(--accent);box-shadow:var(--sh1);transform:translateY(-2px)}
+.stat .num{font-family:'Plus Jakarta Sans',sans-serif;font-size:1.4rem;font-weight:800;letter-spacing:-.02em;
+  color:var(--accent);line-height:1.15}
+.stat .lbl{font-size:.8rem;color:var(--muted);margin-top:7px;line-height:1.45}
+
+/* ---------- figures ---------- */
+.fig{display:flex;flex-direction:column;align-items:center;text-align:center;margin:0}
+.fig img{width:100%;height:auto;border-radius:var(--r);border:1px solid var(--line);background:#fff;box-shadow:var(--sh2)}
+figcaption{color:var(--muted);font-size:.9rem;line-height:1.6;margin-top:16px;max-width:820px}
+figcaption b{color:var(--body)}
+
+/* ---------- abstract ---------- */
+.abs{max-width:var(--prose);margin:0 auto;font-size:1.05rem;line-height:1.85;color:var(--body);text-align:left;
+  background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:30px 36px;box-shadow:var(--sh2);position:relative}
+.abs::before{content:"";position:absolute;left:0;top:22px;bottom:22px;width:4px;border-radius:4px;background:var(--accent)}
+.abs b{color:var(--ink);font-weight:700}
+.abs em{color:var(--accent);font-style:italic;font-weight:600}
+
+/* ---------- problem cards (8003) ---------- */
+.prob-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:var(--maxw);margin:0 auto}
+.prob-card{border:1px solid var(--line);border-radius:var(--r);background:#fff;padding:26px 26px;
+  box-shadow:var(--sh1);transition:border-color .18s}
+.prob-card:hover{border-color:var(--soft)}
+.prob-head{display:flex;align-items:center;gap:13px;margin-bottom:11px}
+.pnum{display:inline-flex;align-items:center;justify-content:center;width:31px;height:31px;border-radius:9px;
+  background:var(--accent-soft);color:var(--accent);font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;
+  font-size:.96rem;flex:none}
+.prob-card h4{font-size:1.07rem;font-weight:700;letter-spacing:-.01em;margin:0;line-height:1.3}
+.prob-card p{margin:0;font-size:.95rem;color:var(--muted);line-height:1.65}
+.prob-card code{font-family:'JetBrains Mono',monospace;font-size:.85em;background:var(--tint);
+  border:1px solid var(--line);border-radius:5px;padding:1px 6px;color:var(--body)}
+
+/* ---------- highlights (TL;DR bullets) ---------- */
+.hl-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;max-width:var(--maxw);margin:0 auto}
+.hl{display:flex;gap:15px;align-items:flex-start;background:#fff;border:1px solid var(--line);
+  border-radius:var(--r);padding:20px 22px;box-shadow:var(--sh1);text-decoration:none;color:inherit;cursor:pointer;
+  -webkit-user-select:text;user-select:text;-webkit-user-drag:none;
+  transition:border-color .18s,box-shadow .18s,transform .18s}
+.hl:hover{border-color:var(--accent);box-shadow:var(--sh3);transform:translateY(-3px)}
+.hero-hl{margin-top:34px;text-align:left}
+.hero-teaser{margin-top:30px}
+.hero-teaser img{width:100%}
+.hl .ic{font-size:1.4rem;line-height:1;flex:none;margin-top:1px}
+.hl h4{font-size:1.02rem;font-weight:700;margin:0 0 5px;letter-spacing:-.01em}
+.hl p{margin:0;font-size:.92rem;color:var(--muted);line-height:1.62}
+.hl b{color:var(--ink);font-weight:700}
+@media(max-width:760px){.hl-grid{grid-template-columns:1fr}}
+
+/* ---------- discussion cards ---------- */
+.disc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:var(--maxw);margin:0 auto}
+.disc-card{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:24px 24px;box-shadow:var(--sh1)}
+.disc-head{display:flex;align-items:center;gap:11px;margin-bottom:9px}
+.disc-card .ic{font-size:1.35rem;line-height:1;flex:none}
+.disc-card h4{font-size:1.04rem;font-weight:700;margin:0;letter-spacing:-.01em}
+.disc-card p{margin:0;font-size:.93rem;color:var(--muted);line-height:1.66}
+.disc-card b{color:var(--ink);font-weight:700}
+@media(max-width:760px){.disc-grid{grid-template-columns:1fr}}
+
+/* ---------- method: top desc card + bottom (formula | figure) ---------- */
+.method-stack{max-width:var(--maxw);margin:0 auto;display:flex;flex-direction:column;gap:20px}
+.method-bottom{display:grid;grid-template-columns:0.92fr 1.18fr;gap:20px;align-items:stretch}
+.mcard{border:1px solid var(--line);border-radius:var(--r);background:#fff;box-shadow:var(--sh2);
+  height:100%;display:flex;flex-direction:column}
+.mcard.text{padding:30px 32px}
+.mcard.figure{padding:18px;align-items:center;justify-content:center}
+.mcard.figure img{width:100%;height:auto;border-radius:var(--r2);border:1px solid var(--line)}
+.mcard h3{font-size:1.18rem;font-weight:700;letter-spacing:-.01em;margin-bottom:13px;display:flex;align-items:center;gap:10px}
+.dot{width:9px;height:9px;border-radius:50%;background:var(--accent);display:inline-block;flex:none}
+.dot.blue{background:var(--link)}
+.mcard p{font-size:.97rem;color:var(--body);line-height:1.72}
+.mcard .figcap{font-size:.84rem;color:var(--muted);margin-top:14px;text-align:center;line-height:1.6}
+.eq{background:var(--tint);border:1px solid var(--line);border-radius:var(--r2);padding:15px 16px;margin:14px 0;
+  text-align:center;overflow-x:auto;font-size:1.02rem}
+.eq .lbl{display:block;font-size:.72rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:6px;text-align:left}
+.eq-note{font-size:.88rem;color:var(--muted);margin:8px 0 0}
+.eq-note b{color:var(--ink)}
+
+/* ---------- key insights one-per-row ---------- */
+.insight{display:grid;grid-template-columns:1fr 1.12fr;gap:34px;align-items:center;
+  max-width:var(--maxw);margin:0 auto 24px;
+  border:1px solid var(--line);border-radius:var(--r);background:#fff;box-shadow:var(--sh2);padding:34px 38px}
+.insight:last-child{margin-bottom:0}
+.insight.rev{grid-template-columns:1.12fr 1fr}
+.insight.rev .media{order:-1}
+.ins-num{display:inline-block;font-size:.7rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--accent);background:var(--accent-soft);padding:5px 13px;border-radius:999px;margin-bottom:14px}
+.insight h3{font-size:1.32rem;font-weight:800;letter-spacing:-.02em;line-height:1.32;margin-bottom:12px}
+.insight h3 em{color:var(--accent);font-style:italic}
+.insight p{font-size:1.0rem;color:var(--body);line-height:1.74;margin:0}
+.insight .media img{width:100%;border-radius:var(--r2);border:1px solid var(--line);box-shadow:var(--sh1)}
+.insight .media .mcap{font-size:.82rem;color:var(--muted);margin-top:11px;text-align:center;line-height:1.55}
+.mini-table{width:100%;border-collapse:collapse;font-size:.92rem;background:#fff;border:1px solid var(--line);
+  border-radius:var(--r2);overflow:hidden}
+.mini-table th{padding:11px 14px;background:var(--tint);color:var(--ink);font-weight:700;text-align:center;
+  font-size:.82rem}
+.mini-table th:first-child{text-align:left}
+.mini-table td{padding:10px 14px;border-top:1px solid var(--line);text-align:center}
+.mini-table td:first-child{text-align:left;color:var(--body)}
+.drop{color:var(--drop);font-weight:700;font-size:.82em}
+.gain{color:var(--good);font-weight:700;font-size:.82em}
+
+/* ---------- tabs: quantitative evaluation ---------- */
+.tabs{display:inline-flex;gap:5px;margin:0 auto 30px;background:var(--tint);border:1px solid var(--line);
+  border-radius:999px;padding:5px}
+.tabs-wrap{text-align:center}
+.tab{font-family:'Plus Jakarta Sans',sans-serif;font-size:.9rem;font-weight:700;color:var(--muted);cursor:pointer;
+  background:transparent;border:none;border-radius:999px;padding:10px 22px;transition:all .18s;white-space:nowrap}
+.tab:hover{color:var(--ink)}
+.tab.on{color:#fff;background:var(--accent);box-shadow:0 5px 16px rgba(var(--accent-rgb),.3)}
+.panel{display:none}
+.panel.on{display:block;animation:fade .28s ease}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.subhead{font-size:1.08rem;font-weight:700;text-align:center;letter-spacing:-.01em;margin:0 0 16px}
+
+.tablecard{max-width:var(--maxw);margin:0 auto;background:#fff;border:1px solid var(--line);
+  border-radius:var(--r);overflow:hidden;overflow-x:auto;box-shadow:var(--sh2)}
+table.data{width:100%;border-collapse:collapse;font-size:.92rem}
+table.data thead th{background:var(--tint);border-bottom:1px solid var(--line);font-weight:700;color:var(--muted);
+  padding:13px 16px;text-align:center;white-space:nowrap;font-size:.82rem;letter-spacing:.01em}
+table.data thead th:first-child{text-align:left;color:var(--ink)}
+table.data tbody td{border-top:1px solid var(--line);padding:11px 16px;text-align:center;color:var(--body)}
+table.data tbody td:first-child{text-align:left}
+table.data th:first-child,table.data td:first-child{width:1%;white-space:nowrap}
+table.data.lalign thead th,table.data.lalign tbody td{text-align:left}
+table.data.lalign tbody td .gain{margin-left:2px}
+tr.grp td{background:var(--tint);color:var(--muted);font-weight:700;text-align:center !important;font-size:.72rem;
+  letter-spacing:.06em;text-transform:uppercase}
+tr.gear-row td{background:rgba(var(--accent-rgb),.05);font-weight:700}
+tr.gear-row td:first-child{color:var(--accent)}
+.best{font-weight:800;color:var(--ink)}
+.second{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+.tnote{color:var(--muted);font-size:.82rem;text-align:center;line-height:1.55;margin:13px auto 0;max-width:var(--reading)}
+
+/* ablation grid inside tab */
+.ablgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:var(--maxw);margin:0 auto}
+.ablcard{border:1px solid var(--line);border-radius:var(--r2);background:#fff;overflow:hidden;box-shadow:var(--sh1)}
+.ablcard h4{padding:13px 16px 10px;font-size:.88rem;font-weight:700;border-bottom:1px solid var(--line)}
+.ablcard h4 span{color:var(--muted);font-weight:500;font-size:.82em}
+.ablcard table{width:100%;border-collapse:collapse;font-size:.84rem}
+.ablcard th,.ablcard td{padding:6px 12px;text-align:center}
+.ablcard td{border-top:1px solid var(--line)}
+.ablcard td:first-child,.ablcard th:first-child{text-align:left}
+.ablcard thead th{color:var(--muted);font-weight:600;font-size:.76rem;letter-spacing:normal}
+.ablcard tr.def td{background:rgba(var(--accent-rgb),.05)}
+.ablcard tr.def td:first-child{font-weight:700;color:var(--accent)}
+
+/* ---------- citation ---------- */
+.bibwrap{position:relative;max-width:var(--maxw);margin:0 auto 16px}
+.copybtn{position:absolute;top:12px;right:12px;display:inline-flex;align-items:center;gap:6px;
+  background:#fff;border:1px solid var(--line);border-radius:8px;padding:6px 12px;font-family:inherit;
+  font-size:.76rem;font-weight:700;color:var(--body);cursor:pointer;transition:all .15s;box-shadow:var(--sh1)}
+.copybtn:hover{border-color:var(--soft);color:var(--ink)}
+.copybtn.done{color:var(--good);border-color:var(--good)}
+pre.bib{margin:0;background:var(--tint);color:var(--body);
+  border:1px solid var(--line);border-radius:var(--r);padding:22px 24px;overflow-x:auto;font-size:.82rem;line-height:1.7;
+  font-family:'JetBrains Mono',Monaco,Consolas,monospace;box-shadow:var(--sh1)}
+footer{padding:40px 0 52px;text-align:center;color:var(--soft);font-size:.86rem}
+footer a{color:var(--muted)}
+
+/* ---------- responsive ---------- */
+@media(max-width:900px){
+  .stat-grid{grid-template-columns:1fr}
+  .prob-grid{grid-template-columns:1fr}
+  .method-bottom{grid-template-columns:1fr}
+  .insight{grid-template-columns:1fr;gap:22px}
+  .ablgrid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:540px){
+  .wrap{padding:0 20px}
+  .hero{padding-top:78px}
+  .stat-grid{grid-template-columns:1fr}
+  .ablgrid{grid-template-columns:1fr}
+  .tabs{display:flex;flex-wrap:wrap;justify-content:center}
+}
+</style>
+
+<script>window.MathJax={tex:{inlineMath:[['$','$']]},svg:{fontCache:'global'}};</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
+</head>
+<body>
+
+<!-- left rail: language/theme controls + section nav -->
+<div id="leftrail">
+  <div id="themebar" title="Language & theme">
+    <button id="langbtn" type="button">中文</button>
+    <span class="bar-div"></span>
+    <span class="swatches" id="swatches"></span>
+  </div>
+  <nav id="sidenav" aria-label="Section navigation">
+  <a href="#sec-highlights"><span class="d"></span><span class="t"><span class="lang-en">Highlights</span><span class="lang-zh">亮点</span></span></a>
+  <a href="#sec-method"><span class="d"></span><span class="t"><span class="lang-en">Method</span><span class="lang-zh">方法</span></span></a>
+  <a class="sub" href="#m-problem"><span class="d"></span><span class="t"><span class="lang-en">The problem</span><span class="lang-zh">问题</span></span></a>
+  <a class="sub" href="#m-solution"><span class="d"></span><span class="t"><span class="lang-en">Our solution</span><span class="lang-zh">解法</span></span></a>
+  <a href="#sec-insights"><span class="d"></span><span class="t"><span class="lang-en">Key Insights</span><span class="lang-zh">核心发现</span></span></a>
+  <a href="#sec-eval"><span class="d"></span><span class="t"><span class="lang-en">Evaluation</span><span class="lang-zh">定量评测</span></span></a>
+  <a class="sub" href="#sec-eval" data-tab="imagenet"><span class="d"></span><span class="t"><span class="lang-en">ImageNet</span><span class="lang-zh">ImageNet</span></span></a>
+  <a class="sub" href="#sec-eval" data-tab="t2i"><span class="d"></span><span class="t"><span class="lang-en">Text-to-Image</span><span class="lang-zh">文生图</span></span></a>
+  <a class="sub" href="#sec-eval" data-tab="abl"><span class="d"></span><span class="t"><span class="lang-en">Ablations</span><span class="lang-zh">消融</span></span></a>
+  <a href="#sec-discussion"><span class="d"></span><span class="t"><span class="lang-en">Discussion</span><span class="lang-zh">讨论</span></span></a>
+  <a href="#sec-cite"><span class="d"></span><span class="t"><span class="lang-en">Citation</span><span class="lang-zh">引用</span></span></a>
+  </nav>
+</div>
+
+<!-- ===== HERO ===== -->
+<header class="hero" id="sec-highlights"><div class="wrap"><div class="hero-card">
+  <h1>
+    <span class="lang-en"><span class="g">G</span>uided <span class="g">E</span>nd-to-End <span class="g">A</span>uto<span class="g">R</span>egression for Image Synthesis</span>
+    <span class="lang-zh">GEAR：用于图像生成的<span class="g">引导式端到端自回归</span></span>
+  </h1>
+  <div class="authors">
+    <a href="https://linb203.github.io/" target="_blank" rel="noopener">Bin Lin</a><span class="star">*</span>,
+    Zheyuan Liu<span class="star">*</span>,
+    <a href="https://chenguolin.github.io/" target="_blank" rel="noopener">Chenguo Lin</a>,
+    <a href="https://ephemeral182.github.io/" target="_blank" rel="noopener">Sixiang Chen</a><span class="star">*</span>,
+    <a href="https://scholar.google.com/citations?user=bbgjlg0AAAAJ" target="_blank" rel="noopener">Yunyang Ge</a><span class="star">*</span>,
+    <a href="https://lyl1015.github.io/" target="_blank" rel="noopener">Yunlong Lin</a>,
+    <a href="https://scholar.google.com/citations?user=nF_klRIAAAAJ" target="_blank" rel="noopener">Jianwei Zhang</a>,
+    Miles Yang,
+    <a href="https://scholar.google.com/citations?user=igtXP_kAAAAJ" target="_blank" rel="noopener">Zhao Zhong</a>,
+    <a href="https://research.cs.washington.edu/istc/lfb/" target="_blank" rel="noopener">Liefeng Bo</a>,
+    <a href="https://yuanli2333.github.io/" target="_blank" rel="noopener">Li Yuan</a><span class="star">&dagger;</span>
+  </div>
+  <div class="affil"><b>Peking University</b> &nbsp;&middot;&nbsp; <b>Tencent Hunyuan</b></div>
+  <div class="fineprint">
+    <span class="lang-en"><span class="star">*</span> Work done during internship at Tencent Hunyuan &nbsp;&middot;&nbsp; <span class="star">&dagger;</span> Corresponding author</span>
+    <span class="lang-zh"><span class="star">*</span> 实习于腾讯混元 &nbsp;&middot;&nbsp; <span class="star">&dagger;</span> 通讯作者</span>
+  </div>
+  <div class="btns">
+    <a class="btn ghost" href="GEAR.pdf"><i class="fas fa-file-pdf"></i> arXiv</a>
+    <a class="btn ghost" href="GEAR.pdf"><i class="fas fa-file-lines"></i> <span class="lang-en">Paper</span><span class="lang-zh">论文</span></a>
+    <a class="btn ghost" href="https://github.com/Tencent-Hunyuan/GEAR" target="_blank" rel="noopener"><i class="fab fa-github"></i> <span class="lang-en">Code</span><span class="lang-zh">代码</span></a>
+    <a class="btn ghost" href="https://huggingface.co/collections/BinLin203/gear-tokenizer" target="_blank" rel="noopener">&#129303; <span class="lang-en">Models</span><span class="lang-zh">模型</span></a>
+  </div>
+
+  <div class="hl-grid hero-hl">
+    <a class="hl" href="#sec-method" draggable="false"><div class="ic">🔗</div><div>
+      <h4><span class="lang-en">Guided end-to-end</span><span class="lang-zh">引导式端到端</span></h4>
+      <p><span class="lang-en">A soft-assignment bridge lets the AR <b>guide</b> the tokenizer, succeeding exactly where the straight-through estimator collapses.</span><span class="lang-zh">soft 软分配桥让自回归模型<b>引导</b>分词器，恰好在直通估计器（STE）坍塌之处成功。</span></p>
+    </div></a>
+    <a class="hl" href="#sec-insights" draggable="false"><div class="ic">🔄</div><div>
+      <h4><span class="lang-en">Alignment flips to the AR</span><span class="lang-zh">对齐转移到 AR</span></h4>
+      <p><span class="lang-en">Opposite to diffusion-side REPA, the tokenizer becomes <b>less</b> DINOv2-like and lower-entropy, while the AR's per-patch features track DINOv2 far more closely.</span><span class="lang-zh">与扩散侧 REPA 相反，分词器变得<b>更不</b>像 DINOv2、熵更低，而自回归模型的 patch 级特征更贴近 DINOv2。</span></p>
+    </div></a>
+    <a class="hl" href="#sec-eval" data-tab="imagenet" draggable="false"><div class="ic">⚡</div><div>
+      <h4><span class="lang-en">Faster &amp; better</span><span class="lang-zh">更快也更好</span></h4>
+      <p><span class="lang-en">ImageNet gFID converges about <b>10&times;</b> faster. On GPIC text-to-image, a fresh AR reaches the baseline's NTP loss <b>2.5&times;</b> and REPA loss <b>11.1&times;</b> faster.</span><span class="lang-zh">ImageNet gFID 收敛约 <b>10&times;</b> 更快。在 GPIC 文生图上，全新 AR 达到基线 NTP 损失快 <b>2.5&times;</b>、REPA 损失快 <b>11.1&times;</b>。</span></p>
+    </div></a>
+    <a class="hl" href="#sec-eval" data-tab="abl" draggable="false"><div class="ic">🧩</div><div>
+      <h4><span class="lang-en">General &amp; drop-in</span><span class="lang-zh">通用、即插即用</span></h4>
+      <p><span class="lang-en">Works across <b>VQVAE / LFQ / IBQ</b> and across class-conditional ImageNet and text-to-image. Just freeze the tuned tokenizer and drop it into a standard pipeline.</span><span class="lang-zh">在 <b>VQVAE / LFQ / IBQ</b> 上均有效，并覆盖类条件 ImageNet 与文生图。冻结调好的分词器即可直接放入标准流程。</span></p>
+    </div></a>
+  </div>
+
+  <figure class="fig hero-teaser">
+    <img id="teaser" alt="GEAR converges faster and improves quality at every scale">
+    <figcaption>
+      <span class="lang-en"><b>GEAR</b> converges up to <b>10&times; faster</b> than LlamaGen-REPA on ImageNet and improves gFID at every model size, while the naive straight-through end-to-end variant diverges (gFID&approx;105).</span>
+      <span class="lang-zh"><b>GEAR</b> 在 ImageNet 上比 LlamaGen-REPA 收敛快达 <b>10&times;</b>，并在每个模型规模上都改善 gFID，而朴素直通端到端方案则会发散（gFID&approx;105）。</span>
+    </figcaption>
+  </figure>
+</div></div></header>
+
+<!-- ===== METHOD (top desc card + bottom: formula | figure) ===== -->
+<section id="sec-method" class="tint"><div class="wrap">
+  <h2 class="title"><span class="lang-en">Method: Guided End-to-End Training</span><span class="lang-zh">方法：引导式端到端训练</span></h2>
+  <p class="subtitle"><span class="lang-en">Naive end-to-end VQ-AR training fails for three reasons. GEAR resolves all of them while keeping the tokenizer and generator <span class="nb">fully decoupled</span>.</span><span class="lang-zh">朴素的端到端 VQ-AR 训练会因三个原因失败。GEAR 在保持分词器与生成器解耦的同时逐一解决。</span></p>
+
+  <div class="minihead" id="m-problem"><span class="lang-en">The problem</span><span class="lang-zh">问题</span></div>
+  <div class="prob-grid">
+    <article class="prob-card">
+      <div class="prob-head"><div class="pnum">1</div><h4><span class="lang-en">Frozen tokenizer mismatch</span><span class="lang-zh">冻结分词器的目标错配</span></h4></div>
+      <p><span class="lang-en">The tokenizer is optimized for reconstruction only, not for next-token predictability.</span><span class="lang-zh">分词器只为重建而优化，从不考虑产生的 token 是否易于被 next-token 预测。</span></p>
+    </article>
+    <article class="prob-card">
+      <div class="prob-head"><div class="pnum">2</div><h4><span class="lang-en">Discrete bottleneck</span><span class="lang-zh">离散化瓶颈</span></h4></div>
+      <p><span class="lang-en">Token indices come from an <code>argmax</code>, so gradients from the AR cannot directly reach the tokenizer.</span><span class="lang-zh">token 索引来自 <code>argmax</code>，因此自回归模型的梯度无法直接回传到分词器。</span></p>
+    </article>
+    <article class="prob-card">
+      <div class="prob-head"><div class="pnum">3</div><h4><span class="lang-en">STE collapse</span><span class="lang-zh">STE 坍塌</span></h4></div>
+      <p><span class="lang-en">Naive straight-through end-to-end training collapses codebook usage and severely hurts quality.</span><span class="lang-zh">朴素直通（STE）端到端训练会让码本使用坍塌，严重损害生成与重建质量。</span></p>
+    </article>
+  </div>
+
+  <div class="minihead" id="m-solution" style="margin-top:46px"><span class="lang-en">Our solution</span><span class="lang-zh">我们的解法</span></div>
+  <div class="method-stack">
+    <!-- top: description -->
+    <article class="mcard text">
+      <h3><span class="dot"></span><span class="lang-en">Two read-outs, disjoint updates</span><span class="lang-zh">双路读出，互不相交的更新</span></h3>
+      <p>
+        <span class="lang-en">The discrete index is decided by the codebook $\mathcal{C}$, but the vector fed to the AR is read from its own embedding table $\mathbf{E}$ in two ways: a <b>hard</b> branch ($\arg\max$, what the AR consumes at inference) and a differentiable <b>soft</b> branch. The end-to-end gradient flows only through the soft branch, so the tokenizer and the AR update on disjoint paths and never through the unstable straight-through estimator. The prediction loss <b>never</b> touches the tokenizer, which is what prevents the codebook collapse that STE induces.</span>
+        <span class="lang-zh">离散索引由码本 $\mathcal{C}$ 决定，但输入给自回归模型的向量以两种方式从其自身嵌入表 $\mathbf{E}$ 读出：一条 <b>hard</b> 分支（即 $\arg\max$，推理时真正使用的）和一条可导的 <b>soft</b> 分支。端到端梯度只走 soft 分支，于是分词器与自回归模型在互不相交的路径上更新，完全不经过不稳定的直通估计器。预测损失<b>绝不</b>触及分词器，这正是避免 STE 式码本坍塌的关键。</span>
+      </p>
+    </article>
+    <!-- bottom: formulas (left) + figure (right) -->
+    <div class="method-bottom">
+      <article class="mcard text">
+        <h3><span class="dot"></span><span class="lang-en">Formulation</span><span class="lang-zh">公式表述</span></h3>
+        <div class="eq">
+          <span class="lbl"><span class="lang-en">Read-out</span><span class="lang-zh">读出</span></span>
+          $\mathbf{u}^{\mathrm{h}}_i=\mathbf{E}_{\arg\max_k \mathbf{A}_{ik}}\quad\;\;
+          \mathbf{u}^{\mathrm{s}}_i=\mathrm{softmax}(\mathbf{A}_i/\tau)\,\mathbf{E}$
+        </div>
+        <div class="eq">
+          <span class="lbl"><span class="lang-en">Decoupled updates</span><span class="lang-zh">解耦更新</span></span>
+          $\theta_{\mathrm{tok}}\!\leftarrow\!\theta_{\mathrm{tok}}-\eta\nabla(\mathcal{L}_{\mathrm{VQ}}+\lambda\mathcal{L}^{\mathrm{s}}_{\mathrm{align}})$<br>
+          $\theta_{\mathrm{AR}}\!\leftarrow\!\theta_{\mathrm{AR}}-\eta\nabla(\mathcal{L}_{\mathrm{NTP}}+\lambda\mathcal{L}^{\mathrm{h}}_{\mathrm{align}})$
+        </div>
+        <p class="eq-note">
+          <span class="lang-en"><b>hard</b> branch &rarr; NTP &amp; hard alignment (updates AR only)<br><b>soft</b> branch &rarr; alignment (updates tokenizer only)</span>
+          <span class="lang-zh"><b>hard</b> 分支 &rarr; NTP 与 hard 对齐（只更新 AR）<br><b>soft</b> 分支 &rarr; 对齐（只更新分词器）</span>
+        </p>
+      </article>
+      <article class="mcard figure">
+        <div style="width:100%">
+          <img id="overview" alt="Conventional vs naive STE vs GEAR pipelines">
+          <p class="figcap">
+            <span class="lang-en"><b>(a)</b> conventional frozen tokenizer<br><b>(b)</b> naive end-to-end via STE (collapses)<br><b>(c)</b> GEAR's dual hard/soft read-out</span>
+            <span class="lang-zh"><b>(a)</b> 传统冻结分词器<br><b>(b)</b> 朴素 STE 端到端（坍塌）<br><b>(c)</b> GEAR 的 hard/soft 双读出</span>
+          </p>
+        </div>
+      </article>
+    </div>
+  </div>
+</div></section>
+
+<!-- ===== KEY INSIGHTS (one per row) ===== -->
+<section id="sec-insights"><div class="wrap">
+  <h2 class="title"><span class="lang-en">Key Insights</span><span class="lang-zh">核心发现</span></h2>
+  <p class="subtitle"><span class="lang-en">GEAR's behavior is the opposite of diffusion-side recipes, and that is exactly why it works.</span><span class="lang-zh">GEAR 的作用机制与扩散侧方案截然相反，而这正是它有效的原因。</span></p>
+
+  <div class="insight">
+    <div class="text">
+      <div class="ins-num">Finding 1</div>
+      <h3><span class="lang-en">Tokenizer becomes <em>less</em> semantic, not more</span><span class="lang-zh">分词器变得<em>更不</em>语义化</span></h3>
+      <p><span class="lang-en">Unlike REPA-E / VA-VAE / MAETok, which push the continuous latent to be <b>more</b> DINOv2-like, GEAR's tokenizer ends up <b>less</b> DINOv2-like, most sharply at the patch level. Reconstruction is preserved, so this is a re-organization rather than a loss of information.</span><span class="lang-zh">不同于把连续 latent 推得<b>更</b>像 DINOv2 的 REPA-E/VA-VAE/MAETok，GEAR 的分词器反而<b>更不</b>像 DINOv2，在 patch 级下降最明显。重建质量保持不变，这是一种重组而非信息丢失。</span></p>
+    </div>
+    <div class="media">
+      <table class="mini-table">
+        <thead><tr><th><span class="lang-en">Similarity to DINOv2 (patch)</span><span class="lang-zh">与 DINOv2 相似度（patch）</span></th><th>LlamaGen-REPA</th><th>GEAR</th></tr></thead>
+        <tbody>
+          <tr><td>CKA (pre-quant)</td><td>0.173</td><td>0.107 <span class="drop">(&minus;0.066)</span></td></tr>
+          <tr><td>CKA (post-quant)</td><td>0.161</td><td>0.100 <span class="drop">(&minus;0.061)</span></td></tr>
+          <tr><td>CKNNA (pre-quant)</td><td>0.119</td><td>0.083 <span class="drop">(&minus;0.036)</span></td></tr>
+          <tr><td>CKNNA (post-quant)</td><td>0.105</td><td>0.075 <span class="drop">(&minus;0.031)</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="insight rev">
+    <div class="text">
+      <div class="ins-num">Finding 2</div>
+      <h3><span class="lang-en">Semantics and locality shift to the AR</span><span class="lang-zh">语义与局部性转移到 AR</span></h3>
+      <p><span class="lang-en">The alignment burden moves from the tokenizer to the AR. GEAR's AR hidden states track DINOv2 far more closely at the <b>patch level</b>, with stronger locally-coherent, spatially-causal structure that is exactly what makes next-token prediction easier.</span><span class="lang-zh">对齐负担从分词器转移到 AR。GEAR 的 AR 隐藏状态在 <b>patch 级</b>更贴近 DINOv2，具有更强的局部一致、空间因果结构，这正是让 next-token 预测更容易的关键。</span></p>
+    </div>
+    <div class="media">
+      <img id="cknna" alt="AR per-patch alignment to DINOv2 across depth">
+      <p class="mcap"><span class="lang-en">GEAR (red) vs. LlamaGen-REPA (blue): stronger patch-level DINOv2 alignment across all depths.</span><span class="lang-zh">GEAR（红）vs. LlamaGen-REPA（蓝）：各层均有更强的 patch 级 DINOv2 对齐。</span></p>
+    </div>
+  </div>
+
+  <div class="insight">
+    <div class="text">
+      <div class="ins-num">Finding 3</div>
+      <h3><span class="lang-en">Codebook sharpens without collapsing</span><span class="lang-zh">码本变尖锐但不坍塌</span></h3>
+      <p><span class="lang-en">End-to-end training reshapes <em>which</em> codes the tokenizer uses, moving toward <b>lower entropy</b> and a smaller effective codebook size, an easier next-token target. The alignment signal prevents the few-code collapse that raw NTP pressure alone would cause.</span><span class="lang-zh">端到端训练重塑分词器使用<em>哪些</em>码字，朝<b>更低熵</b>、更小有效码本的方向演化，得到更易预测的 next-token 目标。对齐信号阻止了纯 NTP 压力会导致的少数码坍塌。</span></p>
+    </div>
+    <div class="media">
+      <img id="soft" alt="Codebook usage sharpens but does not collapse">
+      <p class="mcap"><span class="lang-en">Usage entropy and effective size fall, peak near 30k steps, then converge above collapse.</span><span class="lang-zh">使用熵与有效码本下降，约 30k 步达到峰值后收敛，始终高于坍塌水平。</span></p>
+    </div>
+  </div>
+
+  <div class="insight rev">
+    <div class="text">
+      <div class="ins-num">Finding 4</div>
+      <h3><span class="lang-en">The "predictable grid" transfers to text-to-image</span><span class="lang-zh">"可预测网格"迁移到文生图</span></h3>
+      <p><span class="lang-en">Freeze GEAR's end-to-end tokenizer and train a fresh text-to-image AR on 100M images (GPIC), changing only the tokenizer. It reaches the baseline's NTP loss <b>2.5&times; faster</b> and its REPA alignment loss <b>11.1&times; faster</b>. The token structure learned on ImageNet transfers to a completely different task.</span><span class="lang-zh">冻结 GEAR 端到端分词器，在 1 亿张图（GPIC）上从头训练文生图 AR，仅分词器不同。它达到基线 NTP 损失快 <b>2.5&times;</b>，REPA 对齐损失快 <b>11.1&times;</b>。在 ImageNet 上学到的 token 结构迁移到了完全不同的任务。</span></p>
+    </div>
+    <div class="media">
+      <img id="trainloss" alt="GPIC text-to-image training dynamics">
+      <p class="mcap"><span class="lang-en">GPIC (T2I) training dynamics. A fresh AR on GEAR's frozen tokenizer (red) converges far faster on both objectives.</span><span class="lang-zh">GPIC（文生图）训练曲线。在 GEAR 冻结分词器（红）上训练的全新 AR 在两个目标上都收敛得更快。</span></p>
+    </div>
+  </div>
+</div></section>
+
+<!-- ===== QUANTITATIVE EVALUATION (tabs) ===== -->
+<section id="sec-eval" class="tint"><div class="wrap">
+  <h2 class="title"><span class="lang-en">Quantitative Evaluation</span><span class="lang-zh">定量评测</span></h2>
+  <p class="subtitle"><span class="lang-en">Controlled comparisons against LlamaGen-REPA at matched parameters and budget.</span><span class="lang-zh">在相同参数量与训练预算下，与 LlamaGen-REPA 的受控对比。</span></p>
+
+  <div class="tabs-wrap"><div class="tabs">
+    <button class="tab on" data-tab="imagenet"><span class="lang-en">ImageNet Generation</span><span class="lang-zh">ImageNet 生成</span></button>
+    <button class="tab" data-tab="t2i"><span class="lang-en">Text-to-Image (GPIC)</span><span class="lang-zh">文生图 (GPIC)</span></button>
+    <button class="tab" data-tab="abl"><span class="lang-en">Ablation Studies</span><span class="lang-zh">消融实验</span></button>
+  </div></div>
+
+  <div class="panel on" id="panel-imagenet">
+    <h3 class="subhead"><span class="lang-en">Class-conditional ImageNet 256&times;256</span><span class="lang-zh">类别条件 ImageNet 256&times;256</span></h3>
+    <div class="tablecard"><table class="data lalign">
+      <caption class="sr-only">Class-conditional ImageNet 256x256 generation results comparing GEAR with LlamaGen-REPA and latent-diffusion baselines.</caption>
+      <thead><tr>
+        <th>Method</th><th>Epochs</th><th>Params</th><th>gFID&darr;</th><th>gFID&darr; (CFG)</th><th>IS&uarr; (CFG)</th>
+      </tr></thead>
+      <tbody>
+        <tr class="grp"><td colspan="6">Latent Diffusion (675M)</td></tr>
+        <tr><td>SiT-REPA</td><td>800</td><td>675M</td><td>5.90</td><td>1.90</td><td>297.5</td></tr>
+        <tr><td>REPA-E</td><td>800</td><td>675M</td><td class="best">1.69</td><td class="best">1.12</td><td class="best">302.9</td></tr>
+        <tr class="grp"><td colspan="6">Autoregressive (300 epochs)</td></tr>
+        <tr><td>LlamaGen-REPA-B</td><td>300</td><td>111M</td><td>20.16</td><td>6.00</td><td>145.0</td></tr>
+        <tr class="gear-row"><td>GEAR-B (Ours)</td><td>300</td><td>111M</td><td>16.96 <span class="gain">(&minus;3.20)</span></td><td>4.95 <span class="gain">(&minus;1.05)</span></td><td>166.1 <span class="gain">(+21.1)</span></td></tr>
+        <tr><td>LlamaGen-REPA-L</td><td>300</td><td>343M</td><td>12.70</td><td>3.15</td><td>208.1</td></tr>
+        <tr class="gear-row"><td>GEAR-L (Ours)</td><td>300</td><td>343M</td><td>8.66 <span class="gain">(&minus;4.04)</span></td><td>2.95 <span class="gain">(&minus;0.20)</span></td><td>239.8 <span class="gain">(+31.7)</span></td></tr>
+        <tr><td>LlamaGen-REPA-XL</td><td>300</td><td>775M</td><td>8.20</td><td>2.68</td><td>232.2</td></tr>
+        <tr class="gear-row"><td>GEAR-XL (Ours)</td><td>300</td><td>775M</td><td>6.76 <span class="gain">(&minus;1.44)</span></td><td>2.52 <span class="gain">(&minus;0.16)</span></td><td>262.9 <span class="gain">(+30.7)</span></td></tr>
+        <tr class="grp"><td colspan="6">Autoregressive (800 epochs)</td></tr>
+        <tr><td>LlamaGen-REPA-L</td><td>800</td><td>343M</td><td>10.44</td><td>2.92</td><td>216.0</td></tr>
+        <tr class="gear-row"><td>GEAR-L (Ours)</td><td>800</td><td>343M</td><td>8.61 <span class="gain">(&minus;1.83)</span></td><td>2.72 <span class="gain">(&minus;0.20)</span></td><td>240.3 <span class="gain">(+24.3)</span></td></tr>
+        <tr><td>LlamaGen-REPA-XL</td><td>800</td><td>775M</td><td>7.46</td><td>2.57</td><td>236.3</td></tr>
+        <tr class="gear-row"><td>GEAR-XL (Ours)</td><td>800</td><td>775M</td><td>6.28 <span class="gain">(&minus;1.18)</span></td><td>2.45 <span class="gain">(&minus;0.12)</span></td><td>254.3 <span class="gain">(+18.0)</span></td></tr>
+      </tbody>
+    </table></div>
+    <p class="tnote"><span class="lang-en">CFG scale 1.5 for all w/CFG columns. GEAR rows differ from the baseline only in the (end-to-end-tuned) frozen tokenizer.</span><span class="lang-zh">所有带 CFG 结果均用 1.5 引导强度。GEAR 行与基线仅在（端到端调过的）冻结分词器上不同。</span></p>
+  </div>
+
+  <div class="panel" id="panel-t2i">
+    <h3 class="subhead"><span class="lang-en">Text-to-Image Generation (GPIC)</span><span class="lang-zh">文生图 (GPIC)</span></h3>
+    <div class="tablecard" style="max-width:900px"><table class="data lalign">
+      <caption class="sr-only">Text-to-image generation results on GPIC comparing GEAR with LlamaGen-REPA.</caption>
+      <thead><tr>
+        <th>Method</th><th>Steps</th><th>FDD&darr;</th><th>FDD&darr; (CFG)</th><th>Prec.&uarr;</th><th>Rec.&uarr;</th>
+      </tr></thead>
+      <tbody>
+        <tr><td>JiT-GPIC-1.1B</td><td>390k</td><td>&ndash;</td><td>204.0</td><td>0.91</td><td>0.53</td></tr>
+        <tr class="grp"><td colspan="6">Controlled comparison (same encoder, data, architecture)</td></tr>
+        <tr><td>LlamaGen-REPA-1.0B</td><td>50k</td><td>414.8</td><td>279.6</td><td>0.87</td><td>0.46</td></tr>
+        <tr class="gear-row"><td>GEAR-1.0B (Ours)</td><td>50k</td><td>381.6 <span class="gain">(&minus;33.2)</span></td><td>256.9 <span class="gain">(&minus;22.7)</span></td><td>0.87</td><td>0.50 <span class="gain">(+0.04)</span></td></tr>
+        <tr><td>LlamaGen-REPA-1.0B</td><td>100k</td><td>319.2</td><td>198.6</td><td>0.89</td><td>0.61</td></tr>
+        <tr class="gear-row"><td>GEAR-1.0B (Ours)</td><td>100k</td><td>281.3 <span class="gain">(&minus;37.9)</span></td><td>177.4 <span class="gain">(&minus;21.2)</span></td><td>0.91 <span class="gain">(+0.02)</span></td><td>0.65 <span class="gain">(+0.04)</span></td></tr>
+        <tr><td>LlamaGen-REPA-1.0B</td><td>200k</td><td>261.4</td><td>153.5</td><td>0.90</td><td>0.72</td></tr>
+        <tr class="gear-row"><td>GEAR-1.0B (Ours)</td><td>200k</td><td>230.0 <span class="gain">(&minus;31.4)</span></td><td>138.0 <span class="gain">(&minus;15.5)</span></td><td>0.91 <span class="gain">(+0.01)</span></td><td>0.75 <span class="gain">(+0.03)</span></td></tr>
+        <tr><td>LlamaGen-REPA-1.0B</td><td>390k</td><td>228.9</td><td>127.9</td><td>0.92</td><td>0.78</td></tr>
+        <tr class="gear-row"><td>GEAR-1.0B (Ours)</td><td>390k</td><td>200.9 <span class="gain">(&minus;28.0)</span></td><td>115.3 <span class="gain">(&minus;12.6)</span></td><td>0.92</td><td>0.80 <span class="gain">(+0.02)</span></td></tr>
+      </tbody>
+    </table></div>
+    <p class="tnote"><span class="lang-en">Same Qwen3-1.7B encoder and 100M-image GPIC corpus, differing only in the frozen tokenizer. CFG scale 1.75. FDD = Fréchet distance in DINOv2 feature space.</span><span class="lang-zh">相同 Qwen3-1.7B 编码器与 1 亿图 GPIC 语料，仅冻结分词器不同。CFG 强度 1.75。FDD = DINOv2 特征空间 Fréchet 距离。</span></p>
+  </div>
+
+  <div class="panel" id="panel-abl">
+    <h3 class="subhead"><span class="lang-en">Ablation Studies</span><span class="lang-zh">消融实验</span></h3>
+    <p class="tnote" style="margin:0 auto 20px"><span class="lang-en">Every design knob swept. Defaults highlighted.</span><span class="lang-zh">每个设计选项都做了扫描，默认配置已高亮。</span></p>
+    <div class="ablgrid">
+      <div class="ablcard"><h4><span class="lang-en">Components</span><span class="lang-zh">组件</span></h4>
+        <table><thead><tr><th>Setting</th><th>gFID&darr;</th><th>rFID&darr;</th></tr></thead><tbody>
+          <tr><td>w/ STE</td><td>104.93</td><td>59.72</td></tr>
+          <tr><td>w/o GAN</td><td class="second">16.35</td><td class="second">5.857</td></tr>
+          <tr class="def"><td>GEAR</td><td class="best">10.63</td><td class="best">1.640</td></tr>
+        </tbody></table></div>
+      <div class="ablcard"><h4><span class="lang-en">Quantizer</span><span class="lang-zh">量化器</span></h4>
+        <table><thead><tr><th>Type</th><th>gFID&darr;</th><th>rFID&darr;</th></tr></thead><tbody>
+          <tr class="def"><td>VQVAE</td><td class="best">10.63</td><td class="best">1.640</td></tr>
+          <tr><td>LFQ</td><td>14.78</td><td>2.129</td></tr>
+          <tr><td>IBQ</td><td class="second">12.97</td><td class="second">1.716</td></tr>
+        </tbody></table></div>
+      <div class="ablcard"><h4><span class="lang-en">Temperature</span><span class="lang-zh">温度</span> <span>&tau;</span></h4>
+        <table><thead><tr><th>&tau;</th><th>gFID&darr;</th><th>rFID&darr;</th></tr></thead><tbody>
+          <tr><td>0.50</td><td class="best">9.15</td><td>1.698</td></tr>
+          <tr class="def"><td>0.10</td><td class="second">10.63</td><td>1.640</td></tr>
+          <tr><td>0.05</td><td>10.75</td><td class="second">1.638</td></tr>
+          <tr><td>0.01</td><td>11.42</td><td class="best">1.628</td></tr>
+        </tbody></table></div>
+      <div class="ablcard"><h4><span class="lang-en">Coefficient</span><span class="lang-zh">系数</span> <span>&lambda;</span></h4>
+        <table><thead><tr><th>&lambda;</th><th>gFID&darr;</th><th>rFID&darr;</th></tr></thead><tbody>
+          <tr><td>0.25</td><td>12.01</td><td>1.653</td></tr>
+          <tr class="def"><td>0.50</td><td class="best">10.63</td><td class="best">1.640</td></tr>
+          <tr><td>0.75</td><td class="second">10.82</td><td class="second">1.647</td></tr>
+          <tr><td>1.00</td><td>10.89</td><td>1.715</td></tr>
+        </tbody></table></div>
+      <div class="ablcard"><h4><span class="lang-en">Alignment Depth</span><span class="lang-zh">对齐层</span></h4>
+        <table><thead><tr><th>Layer</th><th>gFID&darr;</th><th>rFID&darr;</th></tr></thead><tbody>
+          <tr><td>6th</td><td class="second">16.96</td><td class="best">1.714</td></tr>
+          <tr class="def"><td>8th</td><td class="best">16.84</td><td class="second">1.721</td></tr>
+          <tr><td>10th</td><td>17.99</td><td class="best">1.714</td></tr>
+        </tbody></table></div>
+      <div class="ablcard"><h4><span class="lang-en">Target Encoder</span><span class="lang-zh">目标编码器</span></h4>
+        <table><thead><tr><th>Encoder</th><th>gFID&darr;</th><th>rFID&darr;</th></tr></thead><tbody>
+          <tr class="def"><td>DINOv2</td><td class="best">16.84</td><td class="second">1.721</td></tr>
+          <tr><td>DINOv3</td><td class="second">18.97</td><td class="best">1.696</td></tr>
+          <tr><td>SigLIPv2</td><td>19.23</td><td>1.803</td></tr>
+          <tr><td>V-JEPA 2.1</td><td>19.53</td><td>1.879</td></tr>
+        </tbody></table></div>
+      <div class="ablcard"><h4><span class="lang-en">Model Size</span><span class="lang-zh">模型规模</span></h4>
+        <table><thead><tr><th>Size</th><th>gFID&darr;</th><th>rFID&darr;</th></tr></thead><tbody>
+          <tr><td>B (111M)</td><td>21.52</td><td>1.658</td></tr>
+          <tr class="def"><td>L (343M)</td><td class="second">10.63</td><td class="second">1.640</td></tr>
+          <tr><td>XL (775M)</td><td class="best">7.69</td><td class="best">1.624</td></tr>
+        </tbody></table></div>
+      <div class="ablcard"><h4><span class="lang-en">Tokenizer Init.</span><span class="lang-zh">分词器初始化</span></h4>
+        <table><thead><tr><th>Setting</th><th>gFID&darr;</th><th>rFID&darr;</th></tr></thead><tbody>
+          <tr><td>w/o init.</td><td>13.44</td><td>2.256</td></tr>
+          <tr class="def"><td>w/ init.</td><td class="best">10.63</td><td class="best">1.640</td></tr>
+        </tbody></table></div>
+    </div>
+  </div>
+</div></section>
+
+<!-- ===== DISCUSSION (paper §5) ===== -->
+<section id="sec-discussion"><div class="wrap">
+  <h2 class="title"><span class="lang-en">Discussion</span><span class="lang-zh">讨论</span></h2>
+  <p class="subtitle"><span class="lang-en">Where GEAR stands today, the architectural bottleneck behind it, and why the discrete route is still worth it.</span><span class="lang-zh">GEAR 目前的位置、背后的架构瓶颈，以及为何离散路线仍然值得坚持。</span></p>
+  <div class="disc-grid">
+    <div class="disc-card">
+      <div class="disc-head"><div class="ic">🧱</div><h4><span class="lang-en">Reconstruction ceiling</span><span class="lang-zh">重建上限</span></h4></div>
+      <p><span class="lang-en">GEAR's reconstruction (<b>rFID 1.64</b>) upper-bounds its generation (<b>gFID 2.52</b>), and it still trails the continuous-VAE REPA-E (rFID 0.28, gFID 1.12). Closing the discrete-vs-continuous reconstruction gap is the single largest lever for further gains.</span><span class="lang-zh">GEAR 的重建（<b>rFID 1.64</b>）制约了其生成（<b>gFID 2.52</b>），仍落后于连续 VAE 的 REPA-E（rFID 0.28、gFID 1.12）。缩小离散与连续重建之间的差距，是进一步提升的最大杠杆。</span></p>
+    </div>
+    <div class="disc-card">
+      <div class="disc-head"><div class="ic">⚙️</div><h4><span class="lang-en">Compression vs. compute</span><span class="lang-zh">压缩与算力耦合</span></h4></div>
+      <p><span class="lang-en">In VQ-AR every token is one decoding step, which ties the down-sampling rate to sequence length. Borrowing the diffusion side's decoupling, namely a milder tokenizer plus AR-side grouping (patchified or multi-token prediction), could raise the ceiling without inflating the sequence.</span><span class="lang-zh">在 VQ-AR 中每个 token 即一步解码，把下采样率与序列长度绑死。借鉴扩散侧的解耦，即更温和的分词器加上 AR 侧分组（patch 化或多 token 预测），有望在不加长序列的情况下抬高上限。</span></p>
+    </div>
+    <div class="disc-card">
+      <div class="disc-head"><div class="ic">🚀</div><h4><span class="lang-en">Toward unified generation</span><span class="lang-zh">走向统一生成</span></h4></div>
+      <p><span class="lang-en">The discrete next-token form is uniform across modalities, bounds per-step error over long contexts, and inherits the mature LLM alignment stack (RLHF, DPO, GRPO), making it a promising substrate for unified understanding-and-generation systems.</span><span class="lang-zh">离散 next-token 形式跨模态统一，在长上下文中限制每步误差，并继承成熟的 LLM 对齐技术栈（RLHF、DPO、GRPO），因此是构建统一理解与生成系统的有力基底。</span></p>
+    </div>
+  </div>
+</div></section>
+
+<!-- ===== CITATION ===== -->
+<section id="sec-cite" class="tint"><div class="wrap">
+  <h2 class="title"><span class="lang-en">Citation</span><span class="lang-zh">引用</span></h2>
+  <div style="height:22px"></div>
+  <div class="bibwrap">
+    <button class="copybtn" type="button"><i class="fas fa-copy"></i> <span class="lang-en">Copy</span><span class="lang-zh">复制</span></button>
+<pre class="bib">@article{gear2026,
+  title   = {GEAR: Guided End-to-End AutoRegression for Image Synthesis},
+  author  = {Lin, Bin and Liu, Zheyuan and Lin, Chenguo and Chen, Sixiang and
+             Ge, Yunyang and Lin, Yunlong and Zhang, Jianwei and Yang, Miles and
+             Zhong, Zhao and Bo, Liefeng and Yuan, Li},
+  year    = {2026}
+}</pre>
+  </div>
+  <div class="bibwrap">
+    <button class="copybtn" type="button"><i class="fas fa-copy"></i> <span class="lang-en">Copy</span><span class="lang-zh">复制</span></button>
+<pre class="bib">@article{ifsq_llamagenrepa,
+  title   = {iFSQ: Improving FSQ for Image Generation with 1 Line of Code},
+  author  = {Lin, Bin and Li, Zongjian and Niu, Yuwei and Gong, Kaixiong and
+             Ge, Yunyang and Lin, Yunlong and Zheng, Mingzhe and Zhang, JianWei and
+             Yang, Miles and Zhong, Zhao and others},
+  journal = {arXiv preprint arXiv:2601.17124},
+  year    = {2026}
+}</pre>
+  </div>
+</div></section>
+
+<footer>GEAR &middot; Peking University &amp; Tencent Hunyuan</footer>
+
+<script>
+const FIGS = {
+  teaser:    "assets/teaser.png",
+  overview:  "assets/gear.png",
+  soft:      "assets/soft.png",
+  cknna:     "assets/cknna.png",
+  trainloss: "assets/trainloss.png",
+};
+for (const [id,u] of Object.entries(FIGS)){const e=document.getElementById(id);if(e)e.src=u;}
+
+/* color themes (default blue) */
+const THEMES = {
+  blue:   {accent:"#2563eb", dark:"#1d4ed8", soft:"#eaf1fe", rgb:"37,99,235"},
+  red:    {accent:"#e0322b", dark:"#b91c1c", soft:"#fdeceb", rgb:"224,50,43"},
+  violet: {accent:"#7c3aed", dark:"#6d28d9", soft:"#f2ecfd", rgb:"124,58,237"},
+  emerald:{accent:"#059669", dark:"#047857", soft:"#e7f7f1", rgb:"5,150,105"},
+  amber:  {accent:"#ea8a06", dark:"#c2710a", soft:"#fdf1dc", rgb:"234,138,6"},
+  slate:  {accent:"#475569", dark:"#334155", soft:"#eef1f5", rgb:"71,85,105"},
+};
+function applyTheme(name){
+  const t = THEMES[name] || THEMES.blue;
+  const r = document.documentElement.style;
+  r.setProperty("--accent", t.accent);
+  r.setProperty("--accent-dark", t.dark);
+  r.setProperty("--accent-soft", t.soft);
+  r.setProperty("--accent-rgb", t.rgb);
+  document.querySelectorAll(".swatch").forEach(s=>s.classList.toggle("on", s.dataset.theme===name));
+  try{localStorage.setItem("gear-theme2", name);}catch(e){}
+}
+const bar = document.getElementById("swatches");
+Object.entries(THEMES).forEach(([name,t])=>{
+  const b = document.createElement("button");
+  b.className = "swatch"; b.dataset.theme = name;
+  b.style.background = t.accent; b.title = name;
+  b.addEventListener("click", ()=>applyTheme(name));
+  bar.appendChild(b);
+});
+let savedTheme = "blue";
+try{savedTheme = localStorage.getItem("gear-theme2") || "blue";}catch(e){}
+applyTheme(savedTheme);
+
+/* language toggle */
+const langbtn = document.getElementById("langbtn");
+function applyLang(l){
+  document.body.classList.toggle("zh", l==="zh");
+  document.documentElement.lang = (l==="zh") ? "zh-CN" : "en";
+  langbtn.textContent = (l==="zh") ? "EN" : "中文";
+  try{localStorage.setItem("gear-lang", l);}catch(e){}
+}
+let savedLang = "en";
+try{savedLang = localStorage.getItem("gear-lang") || "en";}catch(e){}
+applyLang(savedLang);
+langbtn.addEventListener("click", ()=>applyLang(document.body.classList.contains("zh") ? "en" : "zh"));
+
+/* tabs */
+function selectTab(name){
+  document.querySelectorAll(".tab").forEach(t=>t.classList.toggle("on", t.dataset.tab===name));
+  document.querySelectorAll(".panel").forEach(p=>p.classList.remove("on"));
+  const panel = document.getElementById("panel-"+name);
+  if(panel) panel.classList.add("on");
+}
+document.querySelectorAll(".tab").forEach(tab=>{
+  tab.addEventListener("click", ()=>selectTab(tab.dataset.tab));
+});
+
+function flashEl(tgt){
+  if(!tgt) return;
+  tgt.classList.remove("flash"); void tgt.offsetWidth; tgt.classList.add("flash");
+  setTimeout(()=>tgt.classList.remove("flash"), 2400);
+}
+
+/* guard: a drag (text selection) on a highlight card must NOT navigate */
+document.querySelectorAll(".hl").forEach(a=>{
+  let sx=0, sy=0, moved=false;
+  a.addEventListener("mousedown", e=>{ sx=e.clientX; sy=e.clientY; moved=false; });
+  a.addEventListener("mousemove", e=>{ if(Math.abs(e.clientX-sx)>6 || Math.abs(e.clientY-sy)>6) moved=true; });
+  a.addEventListener("click", e=>{
+    const sel = window.getSelection ? window.getSelection().toString() : "";
+    if(moved || sel.length>0){ e.preventDefault(); e.stopImmediatePropagation(); }
+  });
+});
+
+/* any link with data-tab selects that evaluation tab + flashes the target */
+document.querySelectorAll("a[data-tab]").forEach(s=>{
+  s.addEventListener("click", ()=>{
+    selectTab(s.dataset.tab);
+    setTimeout(()=>{
+      const panel = document.getElementById("panel-"+s.dataset.tab);
+      flashEl(panel && panel.querySelector(".tablecard, .ablgrid"));
+    }, 900);
+  });
+});
+
+/* highlight links without a tab (Method / Key Insights) flash their section */
+document.querySelectorAll(".hl:not([data-tab])").forEach(a=>{
+  a.addEventListener("click", ()=>{
+    const sec = document.querySelector(a.getAttribute("href"));
+    if(!sec) return;
+    setTimeout(()=>{
+      flashEl(sec.querySelector(".method-stack, .insight, .tablecard, .ablgrid") || sec);
+    }, 900);
+  });
+});
+
+/* left section nav: scroll-spy (top-level items only) */
+const topLinks = Array.from(document.querySelectorAll("#sidenav a:not(.sub)"));
+const spy = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      topLinks.forEach(a=>a.classList.toggle("on", a.getAttribute("href")==="#"+e.target.id));
+    }
+  });
+},{rootMargin:"-45% 0px -50% 0px",threshold:0});
+topLinks.forEach(a=>{const el=document.getElementById(a.getAttribute("href").slice(1)); if(el) spy.observe(el);});
+
+/* citation copy buttons */
+document.querySelectorAll(".copybtn").forEach(btn=>{
+  btn.addEventListener("click", ()=>{
+    const pre = btn.parentElement.querySelector("pre");
+    navigator.clipboard.writeText(pre.innerText).then(()=>{
+      const en=btn.querySelector(".lang-en"), zh=btn.querySelector(".lang-zh");
+      const oe=en.textContent, oz=zh.textContent;
+      btn.classList.add("done"); en.textContent="Copied"; zh.textContent="已复制";
+      setTimeout(()=>{btn.classList.remove("done"); en.textContent=oe; zh.textContent=oz;}, 1600);
+    });
+  });
+});
+</script>
+</body>
+</html>
